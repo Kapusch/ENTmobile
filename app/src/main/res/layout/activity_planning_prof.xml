@@ -1,0 +1,374 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout_planning_prof"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- The main content view -->
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/horizontalScrollView">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView">
+
+
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rowCount="6"
+                    android:columnCount="7"
+                    android:id="@+id/tableau1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    //la semaine
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/semaine"
+                        android:id="@+id/semaine"
+                        android:layout_width="250dp"
+                        android:textStyle="bold"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        />
+
+                    // journée de la semaine
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/lundi"
+                        android:id="@+id/jourLundi"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        />
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/mardi"
+                        android:id="@+id/jourMardi"
+                        android:layout_row="0"
+                        android:layout_column="2" />
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/mercredi"
+                        android:id="@+id/jourMercredi"
+                        android:layout_row="0"
+                        android:layout_column="3" />
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/jeudi"
+                        android:id="@+id/jourJeudi"
+                        android:layout_row="0"
+                        android:layout_column="4" />
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vendredi"
+                        android:id="@+id/jourVendredi"
+                        android:layout_row="0"
+                        android:layout_column="5" />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/samedi"
+                        android:id="@+id/jourSamedi"
+                        android:layout_row="0"
+                        android:layout_column="6" />
+                    // horaires
+                    <TextView
+                        style="@style/textTableau"
+                        android:layout_width="250dp"
+                        android:text="@string/h8"
+                        android:id="@+id/horaire8h"
+                        android:layout_row="1"
+                        android:layout_column="0"/>
+
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:layout_width="250dp"
+                        android:text="@string/h10"
+                        android:id="@+id/horaire10h"
+                        android:layout_row="2"
+                        android:layout_column="0"/>
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:layout_width="250dp"
+                        android:text="@string/h13"
+                        android:id="@+id/horaire13h"
+                        android:layout_row="3"
+                        android:layout_column="0" />
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:layout_width="250dp"
+                        android:text="@string/h15"
+                        android:id="@+id/horaire15h"
+                        android:layout_row="4"
+                        android:layout_column="0" />
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:layout_width="250dp"
+                        android:text="@string/h17"
+                        android:id="@+id/horaire17h"
+                        android:layout_row="5"
+                        android:layout_column="0" />
+                    // case vide pour créer le tableau
+                    //jour lundi
+
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jlh8"
+                        android:layout_row="1"
+                        android:layout_column="1" />
+
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jlh10"
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jlh13"
+                        android:layout_row="3"
+                        android:layout_column="1"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jlh15"
+                        android:layout_row="4"
+                        android:layout_column="1"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jlh17"
+                        android:layout_row="5"
+                        android:layout_column="1"
+                        />
+                    //jour mardi
+
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmh8"
+                        android:layout_row="1"
+                        android:layout_column="2"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmh10"
+                        android:layout_row="2"
+                        android:layout_column="2"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmh13"
+                        android:layout_row="3"
+                        android:layout_column="2"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmh15"
+                        android:layout_row="4"
+                        android:layout_column="2"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmh17"
+                        android:layout_row="5"
+                        android:layout_column="2"
+                        />
+                    //jour mercredi
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmerh8"
+                        android:layout_row="1"
+                        android:layout_column="3"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmeh10"
+                        android:layout_row="2"
+                        android:layout_column="3"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmeh13"
+                        android:layout_row="3"
+                        android:layout_column="3"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmeh15"
+                        android:layout_row="4"
+                        android:layout_column="3"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jmeh17"
+                        android:layout_row="5"
+                        android:layout_column="3"
+                        />
+                    //jour jeudi
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jjh8"
+                        android:layout_row="1"
+                        android:layout_column="4"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jjh10"
+                        android:layout_row="2"
+                        android:layout_column="4"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jjh13"
+                        android:layout_row="3"
+                        android:layout_column="4"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jjh15"
+                        android:layout_row="4"
+                        android:layout_column="4"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jjh17"
+                        android:layout_row="5"
+                        android:layout_column="4"
+                        />
+                    //jour vendredi
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jvh8"
+                        android:layout_row="1"
+                        android:layout_column="5"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jvh10"
+                        android:layout_row="2"
+                        android:layout_column="5"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jvh13"
+                        android:layout_row="3"
+                        android:layout_column="5"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jvh15"
+                        android:layout_row="4"
+                        android:layout_column="5"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jvh17"
+                        android:layout_row="5"
+                        android:layout_column="5"
+                        />
+                    //jour samedi
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jsh8"
+                        android:layout_row="1"
+                        android:layout_column="6"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jsh10"
+                        android:layout_row="2"
+                        android:layout_column="6"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jsh13"
+                        android:layout_row="3"
+                        android:layout_column="6"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jsh15"
+                        android:layout_row="4"
+                        android:layout_column="6"
+                        />
+                    <TextView
+                        style="@style/textTableau"
+                        android:text="@string/vide"
+                        android:id="@+id/jsh17"
+                        android:layout_row="5"
+                        android:layout_column="6"
+                        />
+
+                </GridLayout>
+
+            </ScrollView>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+
+
+
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer_planning_prof"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@color/darkgrey"
+        android:dividerHeight="2dp"
+        android:background="@color/blue"
+        android:paddingLeft="15sp"
+        android:paddingRight="15sp"
+        />
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="msg_test">DEFAULT TEXT</string>
+    <string name="app_name">ENT mobile</string>
+    <string name="action_settings">Settings</string>
+    <string name="ActionHelpButton">ActionHelpButton</string>
+    <string name="boutonCo1">Connexion</string>
+    <string name="boutonCancel">Annuler</string>
+    <string name="boutonCo2">Se connecter</string>
+    <string name="inputId">Votre identifiant</string>
+    <string name="inputPwd">Votre mot de passe</string>
+    <string name="alertPwdTitle"><b>Mot de passe oublié</b></string>
+    <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
+    <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
+    <string name="boutonCo2Toast">Vous êtes désormais connecté(e) ...</string>
+    <string name="drawer_open">Menu principal ouvert</string>
+    <string name="drawer_close">Menu principal fermé</string>
+    <string name="label_menu">MENU PRINCIPAL</string>
+    <string name="label_accueil">PAGE D\'ACCUEIL</string>
+    <string name="label_planning_prof">VUE DU PLANNING PERSONNEL</string>
+    <string name="label_planning_salle">VUE DU PLANNING PAR SALLE</string>
+    <string name="label_reservation">RÉSERVER UNE SALLE</string>
+    <string name="label_notes">GESTION DES NOTES</string>
+    <string name="label_profil">PROFIL D\'UTILISATEUR</string>
+    <string name="boutonCoDeconnexionToast">Vous êtes désormais déconnecté(e) de l\'application ...</string>
+    <string name="lundi">Lundi</string>
+    <string name="mardi">Mardi</string>
+    <string name="mercredi">Mercredi</string>
+    <string name="jeudi">Jeudi</string>
+    <string name="vendredi">Vendredi</string>
+    <string name="samedi">Samedi</string>
+    <string name="h8">08h00-10h00</string>
+    <string name="h10">10h00-12h00</string>
+    <string name="h13">13h30-15h30</string>
+    <string name="h15">15h30-17h30</string>
+    <string name="h17">17h30-19h30</string>
+    <string name="vide"></string>
+    <string name="nom_profil">Nom :</string>
+    <string name="prenom_profil">Prénom :</string>
+    <string name="adresse_profil">Adresse :</string>
+    <string name="email_profil">E-mail :</string>
+    <string name="telephone_profil">Téléphone :</string>
+    <string name="site_web_profil">Site Web :</string>
+    <string name="semaine"><u>Semaine 50</u></string>
+    <string name="boutonListeUE">Accéder à la liste de mes UE</string>
+    <string name="label_listeUE">Gestion des Unités d\'Enseignement</string>
+    <string name="boutonRechercheUE">Lancer une recherche</string>
+    <string name="boutonRechercheUE_new">Effectuer une nouvelle recherche</string>
+    <string name="boutonCalendarReservation">Sélectionner une date</string>
+
+    <!--Strings array pour les items des menus de chaque activité-->
+    <string-array name="menu_items_accueil">
+        <item>PLANNING PROF</item>
+        <item>PLANNING SALLE</item>
+        <item>RÉSERVER SALLE</item>
+        <item>NOTES</item>
+        <item>PROFIL</item>
+        <item>DÉCONNEXION</item>
+    </string-array>
+
+    <string-array name="menu_items_planning_prof">
+        <item>ACCUEIL</item>
+        <item>PLANNING SALLE</item>
+        <item>RÉSERVER SALLE</item>
+        <item>NOTES</item>
+        <item>PROFIL</item>
+        <item>DÉCONNEXION</item>
+    </string-array>
+
+    <string-array name="menu_items_planning_salle">
+        <item>ACCUEIL</item>
+        <item>PLANNING PROF</item>
+        <item>RÉSERVER SALLE</item>
+        <item>NOTES</item>
+        <item>PROFIL</item>
+        <item>DÉCONNEXION</item>
+    </string-array>
+
+    <string-array name="menu_items_reservation">
+        <item>ACCUEIL</item>
+        <item>PLANNING PROF</item>
+        <item>PLANNING SALLE</item>
+        <item>NOTES</item>
+        <item>PROFIL</item>
+        <item>DÉCONNEXION</item>
+    </string-array>
+
+    <string-array name="menu_items_notes">
+        <item>ACCUEIL</item>
+        <item>PLANNING PROF</item>
+        <item>PLANNING SALLE</item>
+        <item>RÉSERVER SALLE</item>
+        <item>PROFIL</item>
+        <item>DÉCONNEXION</item>
+    </string-array>
+
+    <string-array name="menu_items_profil">
+        <item>ACCUEIL</item>
+        <item>PLANNING PROF</item>
+        <item>PLANNING SALLE</item>
+        <item>RÉSERVER SALLE</item>
+        <item>NOTES</item>
+        <item>DÉCONNEXION</item>
+    </string-array>
+
+
+</resources>
