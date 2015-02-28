@@ -54,6 +54,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private ImageButton calendar;
     private Calendar date;
     private Animation anim_boutonCalendar;
+    private Button boutonReinitialize;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         //Définition des éléments de la page
         boutonRechercheUE = (Button)findViewById(R.id.boutonRechercheUE);
         boutonRechercheUE_new = (Button)findViewById(R.id.boutonRechercheUE_new);
+        boutonReinitialize = (Button)findViewById(R.id.boutonReinitialize);
         panelRechercheUE = (LinearLayout)findViewById(R.id.panel_rechercheUE);
         panelRechercheUE_results = (LinearLayout)findViewById(R.id.panel_rechercheUE_results);
         effectif_text = (TextView)findViewById(R.id.effectif_recherche);
@@ -74,10 +76,8 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         calendar = (ImageButton)findViewById(R.id.date_recherche_calendar);
 
 
-        //Définition du DatePickerDialog pour la date du cours
+        //Définition des éléments de sélection
         setDatePickerDialog();
-
-        //Définition du NumberPicker pour l'effectif
         setNumberPicker_effectif();
 
         //Définition des animations
@@ -90,6 +90,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         //Définition des listeners
         boutonRechercheUE.setOnClickListener(this);
         boutonRechercheUE_new.setOnClickListener(this);
+        boutonReinitialize.setOnClickListener(this);
         calendar.setOnClickListener(this);
         initAnim_boutonCalendar();
 
@@ -157,10 +158,20 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
 
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String Old = "Effectif : ";
+                String Old = getResources().getString(R.string.recherche_effectif_text);
                 effectif_text.setText(Old.concat(String.valueOf(newVal)));
             }
         });
+    }
+
+    //Réinitialiser le formulaire
+    private void reinitialize() {
+        numberPicker_effectif.setValue(0);
+        effectif_text.setText(getResources().getString(R.string.recherche_effectif_text));
+        date_text.setText(getResources().getString(R.string.recherche_date_text));
+        removeDialog(0);
+        /*TODO*/
+        /*Rajouter les éléments à réinitialiser après le clic du bouton*/
     }
 
     @Override
@@ -242,11 +253,16 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
                 panelRechercheUE.setVisibility(View.VISIBLE);
                 break;
 
+            case R.id.boutonReinitialize:
+                reinitialize();
+                break;
+
             case R.id.date_recherche_calendar:
                 calendar.startAnimation(anim_boutonCalendar);
                 break;
         }
     }
+
     //Définition du listener de l'animation du bouton du Calendrier
     private void initAnim_boutonCalendar() {
         anim_boutonCalendar.setAnimationListener(new Animation.AnimationListener() {

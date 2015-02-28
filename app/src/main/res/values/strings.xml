@@ -50,6 +50,9 @@
     <string name="boutonRechercheUE">Lancer une recherche</string>
     <string name="boutonRechercheUE_new">Effectuer une nouvelle recherche</string>
     <string name="boutonCalendarReservation">Sélectionner une date</string>
+    <string name="boutonReinitialize">Réinitialiser le formulaire</string>
+    <string name="recherche_effectif_text">Effectif :</string>
+    <string name="recherche_date_text">jj / mm / aaaa</string>
 
     <!--Strings array pour les items des menus de chaque activité-->
     <string-array name="menu_items_accueil">

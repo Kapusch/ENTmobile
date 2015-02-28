@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <!-- The main content view -->
+    <!--Affichage du panel recherche-->
     <LinearLayout
         android:id="@+id/panel_rechercheUE"
         android:visibility="visible"
@@ -33,7 +34,7 @@
                     <TextView
                         android:id="@+id/effectif_recherche"
                         style="@style/textRecherche"
-                        android:text="Effectif : 0"
+                        android:text="@string/recherche_effectif_text"
                         android:layout_weight="30"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent" />
@@ -55,7 +56,7 @@
                     <TextView
                         android:id="@+id/date_recheche"
                         style="@style/textRecherche"
-                        android:text="jj / mm / aaaa"
+                        android:text="@string/recherche_date_text"
                         android:layout_weight="30"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent" />
@@ -90,20 +91,34 @@
             </LinearLayout>
 
         </LinearLayout>
-        <Button
-            style="@style/boutonA"
-            android:id="@+id/boutonRechercheUE"
+        <LinearLayout
             android:layout_marginTop="10sp"
-            android:text="@string/boutonRechercheUE"
-            android:textSize="25sp"
-            android:layout_gravity="center"
             android:layout_marginRight="20sp"
             android:layout_marginLeft="20sp"
+            android:layout_gravity="center"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent" />
+            android:orientation="horizontal">
+            <Button
+                style="@style/boutonB"
+                android:id="@+id/boutonReinitialize"
+                android:text="@string/boutonReinitialize"
+                android:textSize="20sp"
+                android:layout_weight="50"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent" />
+            <Button
+                style="@style/boutonA"
+                android:id="@+id/boutonRechercheUE"
+                android:text="@string/boutonRechercheUE"
+                android:textSize="20sp"
+                android:layout_weight="50"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent" />
+        </LinearLayout>
     </LinearLayout>
 
-
+    <!--Affichage des résultats-->
     <LinearLayout
         android:id="@+id/panel_rechercheUE_results"
         android:visibility="invisible"
