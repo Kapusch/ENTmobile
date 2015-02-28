@@ -23,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,8 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private LinearLayout panelRechercheUE_results;
     private NumberPicker numberPicker_effectif;
     private TextView effectif_text;
+    private NumberPicker numberPicker_duree_cours;
+    private TextView duree_cours_text;
     private int jour;
     private int mois;
     private int annee;
@@ -55,6 +58,18 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private Calendar date;
     private Animation anim_boutonCalendar;
     private Button boutonReinitialize;
+    private Spinner type_salle;
+    private String salle;
+    private Spinner nom_departement;
+    private String departement;
+    private Spinner nom_equipement_a;
+    private String equipement_a;
+    private Spinner nom_equipement_b;
+    private String equipement_b;
+    private Spinner horaire_debut_cours;
+    private String debut_cours;
+    private int duree_cours;
+    private int effectif;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -72,13 +87,20 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         panelRechercheUE_results = (LinearLayout)findViewById(R.id.panel_rechercheUE_results);
         effectif_text = (TextView)findViewById(R.id.effectif_recherche);
         numberPicker_effectif = (NumberPicker)findViewById(R.id.effectif_recherche_number_picker);
+        numberPicker_duree_cours = (NumberPicker)findViewById(R.id.duree_cours_recherche_number_picker);
+        duree_cours_text = (TextView)findViewById(R.id.duree_cours);
         date_text = (TextView)findViewById(R.id.date_recheche);
         calendar = (ImageButton)findViewById(R.id.date_recherche_calendar);
+        type_salle = (Spinner)findViewById(R.id.recheche_type_salle);
+        nom_departement = (Spinner)findViewById(R.id.recherche_nom_departement);
+        nom_equipement_a = (Spinner)findViewById(R.id.nom_equipement_a);
+        nom_equipement_b = (Spinner)findViewById(R.id.nom_equipement_b);
+        horaire_debut_cours = (Spinner)findViewById(R.id.horaire_debut_cours);
 
 
         //Définition des éléments de sélection
         setDatePickerDialog();
-        setNumberPicker_effectif();
+        setNumberPicker();
 
         //Définition des animations
         anim_panelRechercheUE_show = AnimationUtils.loadAnimation(this, R.anim.push_left_in);
@@ -92,6 +114,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         boutonRechercheUE_new.setOnClickListener(this);
         boutonReinitialize.setOnClickListener(this);
         calendar.setOnClickListener(this);
+        selection_setListner();
         initAnim_boutonCalendar();
 
         // Récupérer les items du menu et la vue du menu
@@ -126,6 +149,54 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
     }
 
+    private void selection_setListner() {
+        type_salle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                salle = parent.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        nom_departement.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                departement = parent.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        nom_equipement_a.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                equipement_a = parent.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        nom_equipement_b.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                equipement_b = parent.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        horaire_debut_cours.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                debut_cours = parent.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
     //Gestion de la sélection de la date pour le cours
     private void setDatePickerDialog() {
         date = Calendar.getInstance();
@@ -150,16 +221,27 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     }
 
     //Gestion du number picker
-    private void setNumberPicker_effectif() {
+    private void setNumberPicker() {
         numberPicker_effectif.setMinValue(0);
         numberPicker_effectif.setMaxValue(300);
         numberPicker_effectif.setWrapSelectorWheel(false);
         numberPicker_effectif.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 String Old = getResources().getString(R.string.recherche_effectif_text);
-                effectif_text.setText(Old.concat(String.valueOf(newVal)));
+                effectif = newVal;
+                effectif_text.setText(Old.concat(" "+String.valueOf(newVal)));
+            }
+        });
+        numberPicker_duree_cours.setMinValue(1);
+        numberPicker_duree_cours.setMaxValue(10);
+        numberPicker_duree_cours.setWrapSelectorWheel(false);
+        numberPicker_duree_cours.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                String Old = getResources().getString(R.string.recherche_duree_cours_text);
+                duree_cours = newVal;
+                duree_cours_text.setText(Old.concat(" "+String.valueOf(newVal)));
             }
         });
     }
@@ -170,8 +252,13 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         effectif_text.setText(getResources().getString(R.string.recherche_effectif_text));
         date_text.setText(getResources().getString(R.string.recherche_date_text));
         removeDialog(0);
-        /*TODO*/
-        /*Rajouter les éléments à réinitialiser après le clic du bouton*/
+        type_salle.setSelection(0);
+        nom_departement.setSelection(0);
+        nom_equipement_a.setSelection(0);
+        nom_equipement_b.setSelection(0);
+        numberPicker_duree_cours.setValue(1);
+        duree_cours_text.setText(getResources().getString(R.string.recherche_duree_cours_text));
+        horaire_debut_cours.setSelection(0);
     }
 
     @Override
