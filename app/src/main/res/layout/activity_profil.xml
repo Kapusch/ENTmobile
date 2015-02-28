@@ -72,42 +72,42 @@
 
                 <TextView
                     style="@style/tableau_profil_col_values"
-                    android:text="SAYABOU"
+                    android:text=""
                     android:id="@+id/nom_profil_val"
                     android:layout_row="0"
                     android:layout_column="1"
                     />
                 <TextView
                     style="@style/tableau_profil_col_values"
-                    android:text="Karim"
+                    android:text=""
                     android:id="@+id/prenom_profil_val"
                     android:layout_row="1"
                     android:layout_column="1"
                     />
                 <EditText
                     style="@style/tableau_profil_col_values_edit"
-                    android:text="24, rue de Paris"
+                    android:text=""
                     android:id="@+id/adresse_profil_val"
                     android:layout_row="2"
                     android:layout_column="1"
                     />
                 <EditText
                     style="@style/tableau_profil_col_values_edit"
-                    android:text="sayaboukarim@gmail.com"
+                    android:text=""
                     android:id="@+id/email_profil_val"
                     android:layout_row="3"
                     android:layout_column="1"
                     />
                 <EditText
                     style="@style/tableau_profil_col_values_edit"
-                    android:text="06 78 99 77 77"
+                    android:text=""
                     android:id="@+id/telephone_profil_val"
                     android:layout_row="4"
                     android:layout_column="1"
                     />
                 <EditText
                     style="@style/tableau_profil_col_values_edit"
-                    android:text="www.karim-info.com"
+                    android:text=""
                     android:id="@+id/site_web_profil_val"
                     android:layout_row="5"
                     android:layout_column="1"

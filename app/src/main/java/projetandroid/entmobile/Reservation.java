@@ -1,6 +1,8 @@
 package projetandroid.entmobile;
 
 import android.app.ActionBar;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,13 +12,23 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Reservation extends ActionBarActivity{
+import java.util.Calendar;
+
+public class Reservation extends ActionBarActivity implements View.OnClickListener{
 
     private String[] drawerListViewItems;
     private ListView drawerListView;
@@ -25,6 +37,23 @@ public class Reservation extends ActionBarActivity{
     private CharSequence titleBar;
     private CharSequence titleMenu;
     private Intent intent;
+    private Button boutonRechercheUE;
+    private Button boutonRechercheUE_new;
+    private Animation anim_panelRechercheUE_show;
+    private Animation anim_panelRechercheUE_hide;
+    private Animation anim_panelRechercheUE_results_show;
+    private Animation anim_panelRechercheUE_results_hide;
+    private LinearLayout panelRechercheUE;
+    private LinearLayout panelRechercheUE_results;
+    private NumberPicker numberPicker_effectif;
+    private TextView effectif_text;
+    private int jour;
+    private int mois;
+    private int annee;
+    private TextView date_text;
+    private ImageButton calendar;
+    private Calendar date;
+    private Animation anim_boutonCalendar;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -33,6 +62,36 @@ public class Reservation extends ActionBarActivity{
         //Définition des titres
         titleBar = getResources().getString(R.string.label_reservation);
         titleMenu = getResources().getString(R.string.label_menu);
+
+        //Définition des éléments de la page
+        boutonRechercheUE = (Button)findViewById(R.id.boutonRechercheUE);
+        boutonRechercheUE_new = (Button)findViewById(R.id.boutonRechercheUE_new);
+        panelRechercheUE = (LinearLayout)findViewById(R.id.panel_rechercheUE);
+        panelRechercheUE_results = (LinearLayout)findViewById(R.id.panel_rechercheUE_results);
+        effectif_text = (TextView)findViewById(R.id.effectif_recherche);
+        numberPicker_effectif = (NumberPicker)findViewById(R.id.effectif_recherche_number_picker);
+        date_text = (TextView)findViewById(R.id.date_recheche);
+        calendar = (ImageButton)findViewById(R.id.date_recherche_calendar);
+
+
+        //Définition du DatePickerDialog pour la date du cours
+        setDatePickerDialog();
+
+        //Définition du NumberPicker pour l'effectif
+        setNumberPicker_effectif();
+
+        //Définition des animations
+        anim_panelRechercheUE_show = AnimationUtils.loadAnimation(this, R.anim.push_left_in);
+        anim_panelRechercheUE_hide = AnimationUtils.loadAnimation(this, R.anim.push_right_out);
+        anim_panelRechercheUE_results_show = AnimationUtils.loadAnimation(this, R.anim.push_right_in);
+        anim_panelRechercheUE_results_hide = AnimationUtils.loadAnimation(this, R.anim.push_left_out);
+        anim_boutonCalendar = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+
+        //Définition des listeners
+        boutonRechercheUE.setOnClickListener(this);
+        boutonRechercheUE_new.setOnClickListener(this);
+        calendar.setOnClickListener(this);
+        initAnim_boutonCalendar();
 
         // Récupérer les items du menu et la vue du menu
         drawerListViewItems = getResources().getStringArray(R.array.menu_items_reservation);
@@ -64,6 +123,44 @@ public class Reservation extends ActionBarActivity{
 
         // Gestion du clic sur un item du menu
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+    }
+
+    //Gestion de la sélection de la date pour le cours
+    private void setDatePickerDialog() {
+        date = Calendar.getInstance();
+        jour = date.get(Calendar.DAY_OF_MONTH);
+        mois = date.get(Calendar.MONTH);
+        annee = date.get(Calendar.YEAR);
+    }
+
+    //Modification de la date après sélection
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            date_text.setText(selectedDay + " / " + (selectedMonth + 1) + " / "
+                    + selectedYear);
+        }
+    };
+
+    @Override
+    @Deprecated
+    protected Dialog onCreateDialog(int id) {
+        return new DatePickerDialog(this, datePickerListener, annee, mois, jour);
+    }
+
+    //Gestion du number picker
+    private void setNumberPicker_effectif() {
+        numberPicker_effectif.setMinValue(0);
+        numberPicker_effectif.setMaxValue(300);
+        numberPicker_effectif.setWrapSelectorWheel(false);
+        numberPicker_effectif.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                String Old = "Effectif : ";
+                effectif_text.setText(Old.concat(String.valueOf(newVal)));
+            }
+        });
     }
 
     @Override
@@ -123,5 +220,48 @@ public class Reservation extends ActionBarActivity{
                     break;
             }
         }
+    }
+
+    //Gestion des évènements sur clic des boutons
+    /* TODO */
+    /*Code pour effectuer une recherche dans la BDD pour une réservation de salle*/
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.boutonRechercheUE:
+                panelRechercheUE.startAnimation(anim_panelRechercheUE_hide);
+                panelRechercheUE.setVisibility(View.INVISIBLE);
+                panelRechercheUE_results.startAnimation(anim_panelRechercheUE_results_show);
+                panelRechercheUE_results.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.boutonRechercheUE_new:
+                panelRechercheUE_results.startAnimation(anim_panelRechercheUE_results_hide);
+                panelRechercheUE_results.setVisibility(View.INVISIBLE);
+                panelRechercheUE.startAnimation(anim_panelRechercheUE_show);
+                panelRechercheUE.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.date_recherche_calendar:
+                calendar.startAnimation(anim_boutonCalendar);
+                break;
+        }
+    }
+    //Définition du listener de l'animation du bouton du Calendrier
+    private void initAnim_boutonCalendar() {
+        anim_boutonCalendar.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                showDialog(0);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
     }
 }

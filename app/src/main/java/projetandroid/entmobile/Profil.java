@@ -10,13 +10,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Profil extends ActionBarActivity{
+public class Profil extends ActionBarActivity implements View.OnClickListener{
 
     private String[] drawerListViewItems;
     private ListView drawerListView;
@@ -25,10 +29,48 @@ public class Profil extends ActionBarActivity{
     private CharSequence titleBar;
     private CharSequence titleMenu;
     private Intent intent;
+    private ImageButton boutonCancelAdresse;
+    private ImageButton boutonCancelTelephone;
+    private ImageButton boutonCancelEmail;
+    private ImageButton boutonCancelSiteWeb;
+    private ImageButton boutonValidateAdresse;
+    private ImageButton boutonValidateTelephone;
+    private ImageButton boutonValidateEmail;
+    private ImageButton boutonValidateSiteWeb;
+    private Animation anim_boutonCancel;
+    private Animation anim_boutonValidate;
+    private Button boutonAccesListeUE;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+
+        //Définition des éléments de la page
+        boutonCancelAdresse = (ImageButton)findViewById(R.id.adresse_profil_cancel);
+        boutonCancelTelephone = (ImageButton)findViewById(R.id.telephone_profil_cancel);
+        boutonCancelEmail = (ImageButton)findViewById(R.id.email_profil_cancel);
+        boutonCancelSiteWeb = (ImageButton)findViewById(R.id.site_web_profil_cancel);
+        boutonValidateAdresse = (ImageButton)findViewById(R.id.adresse_profil_validate);
+        boutonValidateTelephone = (ImageButton)findViewById(R.id.telephone_profil_validate);
+        boutonValidateEmail = (ImageButton)findViewById(R.id.email_profil_validate);
+        boutonValidateSiteWeb = (ImageButton)findViewById(R.id.site_web_profil_validate);
+        boutonAccesListeUE = (Button)findViewById(R.id.boutonAccesListeUE);
+
+        //Définition des animations des boutons
+        anim_boutonCancel = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+        anim_boutonValidate = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+
+        //Définition des listeners
+        boutonCancelAdresse.setOnClickListener(this);
+        boutonCancelTelephone.setOnClickListener(this);
+        boutonCancelEmail.setOnClickListener(this);
+        boutonCancelSiteWeb.setOnClickListener(this);
+        boutonValidateAdresse.setOnClickListener(this);
+        boutonValidateTelephone.setOnClickListener(this);
+        boutonValidateEmail.setOnClickListener(this);
+        boutonValidateSiteWeb.setOnClickListener(this);
+        boutonAccesListeUE.setOnClickListener(this);
+
 
         //Définition des titres
         titleBar = getResources().getString(R.string.label_profil);
@@ -122,6 +164,45 @@ public class Profil extends ActionBarActivity{
                     Toast.makeText(getApplicationContext(), R.string.boutonCoDeconnexionToast, Toast.LENGTH_SHORT).show();
                     break;
             }
+        }
+    }
+
+    //Gestion des évènements sur clic des boutons
+    /* TODO */
+    /* Définir les actions des clics sur les boutons Cancel, Validate */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.adresse_profil_cancel:
+                boutonCancelAdresse.startAnimation(anim_boutonCancel);
+                Toast.makeText(getApplicationContext(), "Modification annulée", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.adresse_profil_validate:
+                boutonValidateAdresse.startAnimation(anim_boutonValidate);
+                Toast.makeText(getApplicationContext(), "Modification validée", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.telephone_profil_cancel:
+                boutonCancelTelephone.startAnimation(anim_boutonCancel);
+                break;
+            case R.id.telephone_profil_validate:
+                boutonValidateTelephone.startAnimation(anim_boutonValidate);
+                break;
+            case R.id.email_profil_cancel:
+                boutonCancelEmail.startAnimation(anim_boutonCancel);
+                break;
+            case R.id.email_profil_validate:
+                boutonValidateEmail.startAnimation(anim_boutonValidate);
+                break;
+            case R.id.site_web_profil_cancel:
+                boutonCancelSiteWeb.startAnimation(anim_boutonCancel);
+                break;
+            case R.id.site_web_profil_validate:
+                boutonValidateSiteWeb.startAnimation(anim_boutonValidate);
+                break;
+            case R.id.boutonAccesListeUE:
+                Intent intent = new Intent(Profil.this, ListeUE.class);
+                startActivity(intent);
+                break;
         }
     }
 }
