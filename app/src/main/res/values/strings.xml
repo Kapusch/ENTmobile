@@ -12,9 +12,12 @@
     <string name="inputPwd">Votre mot de passe</string>
     <string name="alertPwdTitle"><b>Mot de passe oublié</b></string>
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
+    <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
+    <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
+    <string name="alertConfirmToast">La salle que vous avez choisie a bien été réservée.</string>
     <string name="boutonCo2Toast">Vous êtes désormais connecté(e) ...</string>
     <string name="drawer_open">Menu principal ouvert</string>
     <string name="drawer_close">Menu principal fermé</string>
@@ -47,8 +50,8 @@
     <string name="semaine"><u>Semaine 50</u></string>
     <string name="boutonListeUE">Accéder à la liste de mes UE</string>
     <string name="label_listeUE">Gestion des Unités d\'Enseignement</string>
-    <string name="boutonRechercheUE">Lancer une recherche</string>
-    <string name="boutonRechercheUE_new">Effectuer une nouvelle recherche</string>
+    <string name="boutonRecherche_salle">Lancer une recherche</string>
+    <string name="boutonRecherche_salle_new">Effectuer une nouvelle recherche</string>
     <string name="boutonCalendarReservation">Sélectionner une date</string>
     <string name="boutonReinitialize">Réinitialiser le formulaire</string>
     <string name="recherche_effectif_text">Effectif total : </string>
