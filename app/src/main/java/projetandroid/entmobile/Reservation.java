@@ -13,6 +13,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -28,6 +29,8 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,11 +81,12 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private AlertDialog.Builder alertConfirmBuilder;
     private AlertDialog alertConfirm;
     private ListView lv_results;
-    private TextView lv_column_nom_salle;
-    private TextView lv_column_departement;
-    private TextView lv_column_capacite;
-    private TextView lv_column_horaire;
-    private LinearLayout lv_row;
+    private TableLayout table_results;
+    private TableRow row_results;
+    private TextView col_nom_salle;
+    private TextView col_departement;
+    private TextView col_capacite;
+    private TextView col_horaire;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -109,12 +113,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         nom_equipement_a = (Spinner)findViewById(R.id.nom_equipement_a);
         nom_equipement_b = (Spinner)findViewById(R.id.nom_equipement_b);
         horaire_debut_cours = (Spinner)findViewById(R.id.horaire_debut_cours);
-        lv_results = (ListView)findViewById(R.id.listview_recherche_results);
-        lv_column_nom_salle = (TextView)findViewById(R.id.colonne_nom_salle);
-        lv_column_departement = (TextView)findViewById(R.id.colonne_departement);
-        lv_column_capacite = (TextView)findViewById(R.id.colonne_capacite);
-        lv_column_horaire = (TextView)findViewById(R.id.colonne_horaire);
-        lv_row = (LinearLayout)findViewById(R.id.row_recherche_results);
+//        lv_results = (ListView)findViewById(R.id.listview_recherche_results);
 
 
         //Définition des éléments de sélection
@@ -173,44 +172,102 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
     }
 
-    //Définition de l'affichage des résultats de la recherche
-    private void setListViewResults() {
-        // Définition des colonnes du tableau des résultats de la recherche
-        String[] columns = new String[] { "_id", "nom_salle", "departement", "capacite", "horaire" };
-        matrixCursor = new MatrixCursor(columns);
-        startManagingCursor(matrixCursor);
-        matrixCursor.addRow(new Object[] { 1,"SC 3005","Maths-info", "18", "09:00" });
-        matrixCursor.addRow(new Object[] { 2,"SC 3002","Maths-info", "20", "13:30" });
+    //Affichage des résultats
+    private void setTableResults() {
+        final String [] col_1 = {"SC_3005", "SC_3002"};
+        final String [] col_2 = {"Maths-info", "Maths-info"};
+        final String [] col_3 = {"18", "20"};
+        final String [] col_4 = {"09:00", "13:30"};
+        table_results = (TableLayout)findViewById(R.id.table_recherche_results);
 
-        // Prendre les données de toutes les colonnes
-        String[] from = new String[] {"nom_salle", "departement", "capacite", "horaire"};
-
-        // Placer chaque donnée dans les colonnes respectives
-        int[] to = new int[] { R.id.colonne_nom_salle, R.id.colonne_departement, R.id.colonne_capacite, R.id.colonne_horaire};
-
-        // Définition de l'adapter pour remplir le tableau avec les résultats
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.row_listview, matrixCursor, from, to, 0);
-        lv_results = (ListView) findViewById(R.id.listview_recherche_results);
-        lv_results.setAdapter(adapter);
-        // Gestion des clics sur les lignes
-        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View container, int position, long id) {
+        // Construction du tableau
+        for(int i=0;i<col_1.length;i++) {
+            row_results = new TableRow(this);
+            row_results.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                 //Gestion du clic de l'utilisateur sur une ligne de résultat
                 alertConfirm.show();
-            }
-        };
+                }
+            });
+            col_nom_salle = new TextView(this);
+            col_nom_salle.setText(col_1[i]);
+            setStyle(col_nom_salle);
+            col_nom_salle.setLayoutParams( new TableRow.LayoutParams(0, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 1));
 
-    // Utilisation avec notre listview
-        lv_results.setOnItemClickListener(itemClickListener);
+            col_departement = new TextView(this);
+            col_departement.setText(col_2[i]);
+            setStyle(col_departement);
+            col_departement.setLayoutParams( new TableRow.LayoutParams(0, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+
+            col_capacite = new TextView(this);
+            col_capacite.setText(col_3[i]);
+            setStyle(col_capacite);
+            col_capacite.setLayoutParams( new TableRow.LayoutParams(0, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+
+            col_horaire = new TextView(this);
+            col_horaire.setText(col_4[i]);
+            setStyle(col_horaire);
+            col_horaire.setLayoutParams( new TableRow.LayoutParams(0, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+
+            // ajout des cellules à la ligne
+            row_results.addView(col_nom_salle);
+            row_results.addView(col_departement);
+            row_results.addView(col_capacite);
+            row_results.addView(col_horaire);
+
+            // ajout de la ligne au tableau
+            table_results.addView(row_results);
+        }
     }
+
+    // Définition du style des cellules du tableau
+    private void setStyle(TextView cellule) {
+        cellule.setGravity(Gravity.CENTER);
+        cellule.setTextColor(getResources().getColor(R.color.white));
+        cellule.setPadding(4, 4, 4, 4);
+        cellule.setTextSize(24);
+    }
+
+//    //Définition de l'affichage des résultats de la recherche
+//    private void setListViewResults() {
+//        // Définition des colonnes du tableau des résultats de la recherche
+//        String[] columns = new String[] { "_id", "nom_salle", "departement", "capacite", "horaire" };
+//        matrixCursor = new MatrixCursor(columns);
+//        startManagingCursor(matrixCursor);
+//        matrixCursor.addRow(new Object[] { 1,"SC 3005","Maths-info", "18", "09:00" });
+//        matrixCursor.addRow(new Object[] { 2,"SC 3002","Maths-info", "20", "13:30" });
+//
+//        // Prendre les données de toutes les colonnes
+//        String[] from = new String[] {"nom_salle", "departement", "capacite", "horaire"};
+//
+//        // Placer chaque donnée dans les colonnes respectives
+//        int[] to = new int[] { R.id.colonne_nom_salle, R.id.colonne_departement, R.id.colonne_capacite, R.id.colonne_horaire};
+//
+//        // Définition de l'adapter pour remplir le tableau avec les résultats
+//        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.row_listview, matrixCursor, from, to, 0);
+//        lv_results = (ListView) findViewById(R.id.listview_recherche_results);
+//        lv_results.setAdapter(adapter);
+//        // Gestion des clics sur les lignes
+//        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View container, int position, long id) {
+//                //Gestion du clic de l'utilisateur sur une ligne de résultat
+//                alertConfirm.show();
+//            }
+//        };
+//
+//    // Utilisation avec notre listview
+//        lv_results.setOnItemClickListener(itemClickListener);
+//    }
 
     //Définition du contenu de la boîte de dialogue
     private void initalertConfirmBuilder() {
         alertConfirmBuilder.setTitle(R.string.alertReservationTitle);
         String confirm_txt = getResources().getString(R.string.alertReservationMessage);
         String nom_date = jour+"-"+(mois+1)+"-"+annee;
-        alertConfirmBuilder.setMessage("Confirmez-vous la réservation de la salle SC3005 le "+nom_date+" à 09:00 ?");
+//        String nom_salle = table_results.getChildAt(0)
+        alertConfirmBuilder.setMessage(confirm_txt+" SC3005 le "+nom_date+" à 09:00 ?");
         alertConfirmBuilder.setIcon(R.drawable.ic_action_time);
 
         alertConfirmBuilder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
@@ -345,6 +402,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         numberPicker_duree_cours.setValue(1);
         duree_cours_text.setText(getResources().getString(R.string.recherche_duree_cours_text));
         horaire_debut_cours.setSelection(0);
+        table_results.removeAllViews();
     }
 
     @Override
@@ -413,7 +471,8 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.boutonRecherche_salle:
-                setListViewResults();
+//                setListViewResults();
+                setTableResults();
                 panelRecherche_salle.startAnimation(anim_panelRecherche_salle_hide);
                 panelRecherche_salle.setVisibility(View.INVISIBLE);
                 panelRecherche_salle_results.startAnimation(anim_panelRecherche_salle_results_show);
@@ -422,9 +481,9 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
                 break;
 
             case R.id.boutonRecherche_salle_new:
-                reinitialize();
                 panelRecherche_salle_results.startAnimation(anim_panelRecherche_salle_results_hide);
                 panelRecherche_salle_results.setVisibility(View.INVISIBLE);
+                reinitialize();
                 panelRecherche_salle.startAnimation(anim_panelRecherche_salle_show);
                 panelRecherche_salle.setVisibility(View.VISIBLE);
                 break;

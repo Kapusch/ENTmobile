@@ -209,12 +209,18 @@
             android:layout_height="250sp"
             android:orientation="horizontal"
             android:background="@drawable/rectangle">
-            <ListView
-                android:id="@+id/listview_recherche_results"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
 
-                </ListView>
+            <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/scrollView_table_recherche_results"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+                <TableLayout
+                    android:id="@+id/table_recherche_results"
+                    android:layout_width="fill_parent"
+                    android:stretchColumns="0"
+                    android:layout_height="wrap_content">
+                </TableLayout>
+            </ScrollView>
         </LinearLayout>
     </LinearLayout>
 
