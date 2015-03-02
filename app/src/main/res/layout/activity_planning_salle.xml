@@ -139,16 +139,11 @@
                         android:id="@+id/jlh8"
                         android:layout_row="1"
                         android:layout_column="1" />
-
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/newj"
+                        style="@style/bouton_new"
+                        android:id="@+id/newjlh8"
                         android:layout_row="1"
                         android:layout_column="1"
-                        android:background="@drawable/ic_action_new"
-                        android:layout_gravity="center"
-                        android:clickable="true"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -158,6 +153,13 @@
                         android:layout_row="2"
                         android:layout_column="1"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjlh10"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -165,6 +167,13 @@
                         android:layout_row="3"
                         android:layout_column="1"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjlh13"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -172,6 +181,13 @@
                         android:layout_row="4"
                         android:layout_column="1"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjlh15"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -179,6 +195,13 @@
                         android:layout_row="5"
                         android:layout_column="1"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjlh17"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     //jour mardi
 
                     <TextView
@@ -188,6 +211,13 @@
                         android:layout_row="1"
                         android:layout_column="2"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmh8"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -195,6 +225,13 @@
                         android:layout_row="2"
                         android:layout_column="2"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmh10"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -202,6 +239,13 @@
                         android:layout_row="3"
                         android:layout_column="2"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmh13"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -209,6 +253,13 @@
                         android:layout_row="4"
                         android:layout_column="2"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmh15"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -216,6 +267,13 @@
                         android:layout_row="5"
                         android:layout_column="2"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmh17"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     //jour mercredi
                     <TextView
                         style="@style/textTableau"
@@ -224,6 +282,13 @@
                         android:layout_row="1"
                         android:layout_column="3"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmeh8"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -231,6 +296,13 @@
                         android:layout_row="2"
                         android:layout_column="3"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmeh10"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -238,6 +310,13 @@
                         android:layout_row="3"
                         android:layout_column="3"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmeh13"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -245,6 +324,13 @@
                         android:layout_row="4"
                         android:layout_column="3"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmeh15"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -252,6 +338,13 @@
                         android:layout_row="5"
                         android:layout_column="3"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjmeh17"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     //jour jeudi
                     <TextView
                         style="@style/textTableau"
@@ -260,6 +353,13 @@
                         android:layout_row="1"
                         android:layout_column="4"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjjh8"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -267,6 +367,13 @@
                         android:layout_row="2"
                         android:layout_column="4"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjjh10"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -274,6 +381,13 @@
                         android:layout_row="3"
                         android:layout_column="4"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjjh13"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -281,6 +395,13 @@
                         android:layout_row="4"
                         android:layout_column="4"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjjh15"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -288,6 +409,13 @@
                         android:layout_row="5"
                         android:layout_column="4"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjjh17"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     //jour vendredi
                     <TextView
                         style="@style/textTableau"
@@ -296,6 +424,13 @@
                         android:layout_row="1"
                         android:layout_column="5"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjvh8"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -303,6 +438,13 @@
                         android:layout_row="2"
                         android:layout_column="5"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjvh10"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -310,6 +452,13 @@
                         android:layout_row="3"
                         android:layout_column="5"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjvh13"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -317,6 +466,13 @@
                         android:layout_row="4"
                         android:layout_column="5"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjvh15"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -324,6 +480,13 @@
                         android:layout_row="5"
                         android:layout_column="5"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjvh17"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     //jour samedi
                     <TextView
                         style="@style/textTableau"
@@ -332,6 +495,13 @@
                         android:layout_row="1"
                         android:layout_column="6"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjsh8"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -339,6 +509,13 @@
                         android:layout_row="2"
                         android:layout_column="6"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjsh10"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -346,6 +523,13 @@
                         android:layout_row="3"
                         android:layout_column="6"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjsh13"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -353,6 +537,13 @@
                         android:layout_row="4"
                         android:layout_column="6"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjsh15"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
+
                     <TextView
                         style="@style/textTableau"
                         android:text="@string/vide"
@@ -360,6 +551,12 @@
                         android:layout_row="5"
                         android:layout_column="6"
                         />
+                    <ImageButton
+                        style="@style/bouton_new"
+                        android:id="@+id/newjsh17"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:visibility="invisible"/>
 
                 </GridLayout>
 

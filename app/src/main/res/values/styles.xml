@@ -73,6 +73,28 @@
         <item name="android:background">@drawable/bordurecase</item>
     </style>
 
+    <style name="bouton_tableau">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="bouton_new" parent="bouton_tableau">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/ic_action_new</item>
+    </style>
+
+    <style name="bouton_remove" parent="bouton_tableau">
+        <item name="android:layout_gravity">center_vertical|left</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:background">@drawable/ic_action_remove</item>
+    </style>
+
+    <style name="bouton_forward" parent="bouton_tableau">
+        <item name="android:layout_gravity">center_vertical|right</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/ic_action_forward</item>
+    </style>
 
     <style name="coursProf">
         <item name="android:layout_width">wrap_content</item>
