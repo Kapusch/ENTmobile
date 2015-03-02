@@ -134,7 +134,7 @@
 
 
                     <TextView
-                        style="@style/ajoutCours"
+                        style="@style/textTableau"
                         android:text="@string/vide"
                         android:id="@+id/jlh8"
                         android:layout_row="1"

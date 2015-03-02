@@ -73,13 +73,6 @@
         <item name="android:background">@drawable/bordurecase</item>
     </style>
 
-    <style name="ajoutCours">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/ic_action_new</item>
-        <item name="android:clickable">true</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
 
     <style name="coursProf">
         <item name="android:layout_width">wrap_content</item>
