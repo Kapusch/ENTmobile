@@ -252,6 +252,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         String departement = (String) temp_departement.getText();
         String nom_date = jour+"-"+(mois+1)+"-"+annee;
         alertConfirmBuilder.setMessage(confirm_txt+" "+nom_salle+" du département "+departement+" le "+nom_date+" à "+horaire+" ?");
+        alertConfirmBuilder.setIcon(R.drawable.ic_action_time);
 
         alertConfirmBuilder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
             @Override
@@ -455,8 +456,6 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         switch (v.getId()){
             case R.id.boutonRecherche_salle:
                 setTableResults();
-//                initalertConfirmBuilder(i);
-//                alertConfirm = alertConfirmBuilder.create();
                 panelRecherche_salle.startAnimation(anim_panelRecherche_salle_hide);
                 panelRecherche_salle.setVisibility(View.INVISIBLE);
                 panelRecherche_salle_results.startAnimation(anim_panelRecherche_salle_results_show);
