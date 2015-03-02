@@ -12,9 +12,12 @@
     <string name="inputPwd">Votre mot de passe</string>
     <string name="alertPwdTitle"><b>Mot de passe oublié</b></string>
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
+    <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
+    <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
+    <string name="alertConfirmToast">La salle que vous avez choisie a bien été réservée.</string>
     <string name="boutonCo2Toast">Vous êtes désormais connecté(e) ...</string>
     <string name="drawer_open">Menu principal ouvert</string>
     <string name="drawer_close">Menu principal fermé</string>
@@ -47,9 +50,13 @@
     <string name="semaine"><u>Semaine 50</u></string>
     <string name="boutonListeUE">Accéder à la liste de mes UE</string>
     <string name="label_listeUE">Gestion des Unités d\'Enseignement</string>
-    <string name="boutonRechercheUE">Lancer une recherche</string>
-    <string name="boutonRechercheUE_new">Effectuer une nouvelle recherche</string>
+    <string name="boutonRecherche_salle">Lancer une recherche</string>
+    <string name="boutonRecherche_salle_new">Effectuer une nouvelle recherche</string>
     <string name="boutonCalendarReservation">Sélectionner une date</string>
+    <string name="boutonReinitialize">Réinitialiser le formulaire</string>
+    <string name="recherche_effectif_text">Effectif total : </string>
+    <string name="recherche_date_text">jj / mm / aaaa</string>
+    <string name="recherche_duree_cours_text">Durée du cours (heures) : </string>
 
     <!--Strings array pour les items des menus de chaque activité-->
     <string-array name="menu_items_accueil">
@@ -104,6 +111,59 @@
         <item>RÉSERVER SALLE</item>
         <item>NOTES</item>
         <item>DÉCONNEXION</item>
+    </string-array>
+
+    <!--Liste des types de salle-->
+    <string name="type_salle">Type de la salle</string>
+    <string-array name="type_salle_items">
+        <item>Type de la salle</item>
+        <item>Salle de CM</item>
+        <item>Salle de TD</item>
+        <item>Salle de TP</item>
+    </string-array>
+
+    <!--Liste des départements de l'université-->
+    <string name="nom_departement">Localisation de la salle</string>
+    <string-array name="nom_departement_items">
+        <item>Choix du département</item>
+        <item>Dpt. Biologie</item>
+        <item>Dpt. Chimie</item>
+        <item>Dpt. Géologie</item>
+        <item>Dpt. Maths-Info</item>
+        <item>Dpt. Physique</item>
+    </string-array>
+
+    <!--Liste des équipements de la salle-->
+    <string name="nom_equipement">Disponibilité d\'un équipement</string>
+    <string-array name="nom_equipement_items_a">
+        <item>Choix de l\'équipement n°1</item>
+        <item>Microscope</item>
+        <item>Ordinateur</item>
+        <item>Oscilloscope</item>
+        <item>Projecteur</item>
+    </string-array>
+    <string-array name="nom_equipement_items_b">
+        <item>Choix de l\'équipement n°2</item>
+        <item>Microscope</item>
+        <item>Ordinateur</item>
+        <item>Oscilloscope</item>
+        <item>Projecteur</item>
+    </string-array>
+
+    <!--Liste créneaux horaires début de cours-->
+    <string name="horaire_debut_cours">Horaire du début du cours</string>
+    <string-array name="horaire_debut_cours_items">
+        <item>Horaire du début du cours</item>
+        <item>Début du cours à 08:00</item>
+        <item>Début du cours à 09:00</item>
+        <item>Début du cours à 10:00</item>
+        <item>Début du cours à 11:00</item>
+        <item>Début du cours à 13:30</item>
+        <item>Début du cours à 14:30</item>
+        <item>Début du cours à 15:30</item>
+        <item>Début du cours à 16:30</item>
+        <item>Début du cours à 17:30</item>
+        <item>Début du cours à 18:30</item>
     </string-array>
 
 
