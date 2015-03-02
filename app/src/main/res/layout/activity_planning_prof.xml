@@ -141,24 +141,26 @@
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageButton"
+                        android:id="@+id/remove"
                         android:layout_row="1"
                         android:layout_column="1"
                         android:background="@drawable/ic_action_remove"
                         android:layout_gravity="center_vertical|left"
                         android:layout_marginLeft="10dp"
-                        android:clickable="true" />
+                        android:clickable="true"
+                        android:visibility="invisible"/>
 
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/imageButtontest"
+                        android:id="@+id/foward"
                         android:layout_row="1"
                         android:layout_column="1"
-                        android:background="@drawable/ic_action_remove"
+                        android:background="@drawable/ic_action_forward"
                         android:layout_gravity="center_vertical|right"
                         android:layout_marginRight="10dp"
-                        android:clickable="true" />
+                        android:clickable="true"
+                        android:visibility="invisible"/>
 
 
                     <TextView
