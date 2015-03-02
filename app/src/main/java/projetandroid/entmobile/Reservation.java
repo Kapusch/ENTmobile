@@ -34,7 +34,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Objects;
 
 public class Reservation extends ActionBarActivity implements View.OnClickListener{
 
@@ -77,7 +80,6 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private String debut_cours;
     private int duree_cours;
     private int effectif;
-    private MatrixCursor matrixCursor;
     private AlertDialog.Builder alertConfirmBuilder;
     private AlertDialog alertConfirm;
     private ListView lv_results;
@@ -87,6 +89,11 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private TextView col_departement;
     private TextView col_capacite;
     private TextView col_horaire;
+    private int index_nom_salle = 0;
+    private int index_departement = 1;
+    private int index_capacite = 2;
+    private int index_horaire = 3;
+    private Animation anim_clic_on_item;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -113,17 +120,12 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         nom_equipement_a = (Spinner)findViewById(R.id.nom_equipement_a);
         nom_equipement_b = (Spinner)findViewById(R.id.nom_equipement_b);
         horaire_debut_cours = (Spinner)findViewById(R.id.horaire_debut_cours);
-//        lv_results = (ListView)findViewById(R.id.listview_recherche_results);
+        table_results = (TableLayout)findViewById(R.id.table_recherche_results);
 
 
         //Définition des éléments de sélection
         setDatePickerDialog();
         setNumberPicker();
-
-        //Définition de la boîte de dialogue de confirmation de réservation
-        alertConfirmBuilder = new AlertDialog.Builder(this);
-        initalertConfirmBuilder();
-        alertConfirm = alertConfirmBuilder.create();
 
         //Définition des animations
         anim_panelRecherche_salle_show = AnimationUtils.loadAnimation(this, R.anim.push_left_in);
@@ -131,6 +133,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         anim_panelRecherche_salle_results_show = AnimationUtils.loadAnimation(this, R.anim.push_right_in);
         anim_panelRecherche_salle_results_hide = AnimationUtils.loadAnimation(this, R.anim.push_left_out);
         anim_boutonCalendar = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+        anim_clic_on_item = AnimationUtils.loadAnimation(this, R.anim.fadein);
 
         //Définition des listeners
         boutonRecherche_salle.setOnClickListener(this);
@@ -139,6 +142,9 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         calendar.setOnClickListener(this);
         selection_setListner();
         initAnim_boutonCalendar();
+
+        //Définition de la boîte de dialogue de confirmation de réservation
+        alertConfirmBuilder = new AlertDialog.Builder(this);
 
         // Récupérer les items du menu et la vue du menu
         drawerListViewItems = getResources().getStringArray(R.array.menu_items_reservation);
@@ -178,18 +184,11 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         final String [] col_2 = {"Maths-info", "Maths-info"};
         final String [] col_3 = {"18", "20"};
         final String [] col_4 = {"09:00", "13:30"};
-        table_results = (TableLayout)findViewById(R.id.table_recherche_results);
 
         // Construction du tableau
         for(int i=0;i<col_1.length;i++) {
+            final int position = i;
             row_results = new TableRow(this);
-            row_results.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                //Gestion du clic de l'utilisateur sur une ligne de résultat
-                alertConfirm.show();
-                }
-            });
             col_nom_salle = new TextView(this);
             col_nom_salle.setText(col_1[i]);
             setStyle(col_nom_salle);
@@ -216,6 +215,17 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
             row_results.addView(col_capacite);
             row_results.addView(col_horaire);
 
+            //Gestion du clic de l'utilisateur sur une ligne de résultat
+            row_results.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    table_results.getChildAt(position).startAnimation(anim_clic_on_item);
+                    initalertConfirmBuilder(position);
+                    alertConfirm = alertConfirmBuilder.create();
+                    alertConfirm.show();
+                }
+            });
+
             // ajout de la ligne au tableau
             table_results.addView(row_results);
         }
@@ -229,46 +239,19 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         cellule.setTextSize(24);
     }
 
-//    //Définition de l'affichage des résultats de la recherche
-//    private void setListViewResults() {
-//        // Définition des colonnes du tableau des résultats de la recherche
-//        String[] columns = new String[] { "_id", "nom_salle", "departement", "capacite", "horaire" };
-//        matrixCursor = new MatrixCursor(columns);
-//        startManagingCursor(matrixCursor);
-//        matrixCursor.addRow(new Object[] { 1,"SC 3005","Maths-info", "18", "09:00" });
-//        matrixCursor.addRow(new Object[] { 2,"SC 3002","Maths-info", "20", "13:30" });
-//
-//        // Prendre les données de toutes les colonnes
-//        String[] from = new String[] {"nom_salle", "departement", "capacite", "horaire"};
-//
-//        // Placer chaque donnée dans les colonnes respectives
-//        int[] to = new int[] { R.id.colonne_nom_salle, R.id.colonne_departement, R.id.colonne_capacite, R.id.colonne_horaire};
-//
-//        // Définition de l'adapter pour remplir le tableau avec les résultats
-//        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.row_listview, matrixCursor, from, to, 0);
-//        lv_results = (ListView) findViewById(R.id.listview_recherche_results);
-//        lv_results.setAdapter(adapter);
-//        // Gestion des clics sur les lignes
-//        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View container, int position, long id) {
-//                //Gestion du clic de l'utilisateur sur une ligne de résultat
-//                alertConfirm.show();
-//            }
-//        };
-//
-//    // Utilisation avec notre listview
-//        lv_results.setOnItemClickListener(itemClickListener);
-//    }
-
     //Définition du contenu de la boîte de dialogue
-    private void initalertConfirmBuilder() {
+    private void initalertConfirmBuilder(int i) {
         alertConfirmBuilder.setTitle(R.string.alertReservationTitle);
         String confirm_txt = getResources().getString(R.string.alertReservationMessage);
+        TableRow temp_row = (TableRow)table_results.getChildAt(i);
+        TextView temp_salle = (TextView)temp_row.getChildAt(index_nom_salle);
+        TextView temp_horaire = (TextView)temp_row.getChildAt(index_horaire);
+        TextView temp_departement = (TextView) temp_row.getChildAt(index_departement);
+        String nom_salle = (String) temp_salle.getText();
+        String horaire = (String) temp_horaire.getText();
+        String departement = (String) temp_departement.getText();
         String nom_date = jour+"-"+(mois+1)+"-"+annee;
-//        String nom_salle = table_results.getChildAt(0)
-        alertConfirmBuilder.setMessage(confirm_txt+" SC3005 le "+nom_date+" à 09:00 ?");
-        alertConfirmBuilder.setIcon(R.drawable.ic_action_time);
+        alertConfirmBuilder.setMessage(confirm_txt+" "+nom_salle+" du département "+departement+" le "+nom_date+" à "+horaire+" ?");
 
         alertConfirmBuilder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
             @Override
@@ -471,8 +454,9 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.boutonRecherche_salle:
-//                setListViewResults();
                 setTableResults();
+//                initalertConfirmBuilder(i);
+//                alertConfirm = alertConfirmBuilder.create();
                 panelRecherche_salle.startAnimation(anim_panelRecherche_salle_hide);
                 panelRecherche_salle.setVisibility(View.INVISIBLE);
                 panelRecherche_salle_results.startAnimation(anim_panelRecherche_salle_results_show);
