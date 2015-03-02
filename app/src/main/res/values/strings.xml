@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="test">test</string>
     <string name="msg_test">DEFAULT TEXT</string>
     <string name="app_name">ENT mobile</string>
     <string name="action_settings">Settings</string>
