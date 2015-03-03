@@ -13,7 +13,9 @@
     <string name="alertPwdTitle"><b>Mot de passe oublié</b></string>
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
     <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
+    <string name="alertModificationNoteTitle"><b>Modification de la note</b></string>
     <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
+    <string name="alertModificationNoteMessage">Confirmez-vous la modification de la note actuelle de  </string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
@@ -165,6 +167,10 @@
         <item>Début du cours à 17:30</item>
         <item>Début du cours à 18:30</item>
     </string-array>
+    
+    <!--Liste des Ue sélectionnées (temporaires)-->
+    <string name="select_ue">Sélectionner une Unité d\'Enseignement</string>
+    <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
 
 
 </resources>

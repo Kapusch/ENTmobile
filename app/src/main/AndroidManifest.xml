@@ -38,6 +38,7 @@
         </activity>
 
         <activity android:name=".Notes"
+            android:theme="@style/AppTheme"
             android:label="@string/label_notes"
             android:screenOrientation="userLandscape">
         </activity>
