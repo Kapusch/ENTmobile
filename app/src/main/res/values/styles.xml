@@ -5,6 +5,10 @@
         <item name="android:colorBackground">@color/grey</item>
         <item name="android:alertDialogTheme">@style/CustomDialogTheme</item>
     </style>
+    <style name="AppThemeBis" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:colorBackground">@color/darkgrey</item>
+        <item name="android:alertDialogTheme">@style/CustomDialogTheme</item>
+    </style>
 
     <style name="boutonA">
     <item name="android:background">@drawable/button_a</item>
