@@ -1,6 +1,8 @@
 package projetandroid.entmobile;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,6 +12,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -33,6 +38,14 @@ public class PlanningProf extends ActionBarActivity{
     private ImageButton removejjh8, removejjh10, removejjh13, removejjh15, removejjh17, removejvh8, removejvh10, removejvh13, removejvh15, removejvh17, removejsh8, removejsh10, removejsh13, removejsh15, removejsh17;
     private ImageButton forwardjlh8, forwardjlh10, forwardjlh13, forwardjlh15,forwardjlh17, forwardjmh8, forwardjmh10, forwardjmh13, forwardjmh15, forwardjmh17, forwardjmeh8, forwardjmeh10, forwardjmeh13, forwardjmeh15, forwardjmeh17;
     private ImageButton forwardjjh8, forwardjjh10, forwardjjh13, forwardjjh15, forwardjjh17, forwardjvh8, forwardjvh10, forwardjvh13, forwardjvh15, forwardjvh17, forwardjsh8, forwardjsh10, forwardjsh13, forwardjsh15, forwardjsh17;
+    private AlertDialog.Builder alertPwdBuilder;
+    private AlertDialog alertPwd;
+    private Context context;
+    private Animation clique;
+    private TextView cellule[]={jlh8, jlh10, jlh13, jlh15,jlh17, jmh8, jmh10, jmh13, jmh15, jmh17, jmeh8, jmeh10, jmeh13, jmeh15, jmeh17, jjh8, jjh10, jjh13, jjh15, jjh17, jvh8, jvh10, jvh13, jvh15, jvh17, jsh8, jsh10, jsh13, jsh15, jsh17};
+    private ImageButton remove[]={removejlh8, removejlh10, removejlh13, removejlh15,removejlh17, removejmh8, removejmh10, removejmh13, removejmh15, removejmh17, removejmeh8, removejmeh10, removejmeh13, removejmeh15, removejmeh17,removejjh8, removejjh10, removejjh13, removejjh15, removejjh17, removejvh8, removejvh10, removejvh13, removejvh15, removejvh17, removejsh8, removejsh10, removejsh13, removejsh15, removejsh17};
+    private ImageButton forward[]={forwardjlh8, forwardjlh10, forwardjlh13, forwardjlh15,forwardjlh17, forwardjmh8, forwardjmh10, forwardjmh13, forwardjmh15, forwardjmh17, forwardjmeh8, forwardjmeh10, forwardjmeh13, forwardjmeh15, forwardjmeh17,forwardjjh8, forwardjjh10, forwardjjh13, forwardjjh15, forwardjjh17, forwardjvh8, forwardjvh10, forwardjvh13, forwardjvh15, forwardjvh17, forwardjsh8, forwardjsh10, forwardjsh13, forwardjsh15, forwardjsh17};
+    private int i;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -131,6 +144,30 @@ public class PlanningProf extends ActionBarActivity{
         forwardjsh15 = (ImageButton)findViewById(R.id.forwardjsh15);
         forwardjsh17 = (ImageButton)findViewById(R.id.forwardjsh17);
 
+        context = this;
+
+        //Définition des animations
+        clique = AnimationUtils.loadAnimation(this, R.anim.fadein);
+
+        //Définition du listener des cliques sur les cases
+        initAnim_clique();
+
+        jlh8.setClickable(true);
+        jlh8.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.jlh8:
+                        jlh8.startAnimation(clique);
+                        removejlh8.setVisibility(View.VISIBLE);
+                        forwardjlh8.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
+
+
+
         //Définition des titres
         titleBar = getResources().getString(R.string.label_planning_prof);
         titleMenu = getResources().getString(R.string.label_menu);
@@ -224,5 +261,22 @@ public class PlanningProf extends ActionBarActivity{
                     break;
             }
         }
+    }
+
+
+    //Définition du listener de l'animation du boutonHelp
+    private void initAnim_clique() {
+        clique.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                alertPwd.show();
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
     }
 }

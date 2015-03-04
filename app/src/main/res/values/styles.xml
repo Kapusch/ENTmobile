@@ -80,7 +80,6 @@
     <style name="bouton_tableau">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:clickable">true</item>
     </style>
 
     <style name="bouton_new" parent="bouton_tableau">
