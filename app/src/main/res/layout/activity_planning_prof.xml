@@ -160,13 +160,13 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejlh10"
-                        android:layout_row="1"
+                        android:layout_row="2"
                         android:layout_column="1"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjlh10"
-                        android:layout_row="1"
+                        android:layout_row="2"
                         android:layout_column="1"
                         android:visibility="invisible"/>
 
@@ -180,13 +180,13 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejlh13"
-                        android:layout_row="1"
+                        android:layout_row="3"
                         android:layout_column="1"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjlh13"
-                        android:layout_row="1"
+                        android:layout_row="3"
                         android:layout_column="1"
                         android:visibility="invisible"/>
 
@@ -200,13 +200,13 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejlh15"
-                        android:layout_row="1"
+                        android:layout_row="4"
                         android:layout_column="1"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjlh15"
-                        android:layout_row="1"
+                        android:layout_row="4"
                         android:layout_column="1"
                         android:visibility="invisible"/>
 
@@ -220,13 +220,13 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejlh17"
-                        android:layout_row="1"
+                        android:layout_row="5"
                         android:layout_column="1"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjlh17"
-                        android:layout_row="1"
+                        android:layout_row="5"
                         android:layout_column="1"
                         android:visibility="invisible"/>
 
@@ -243,13 +243,13 @@
                         style="@style/bouton_remove"
                         android:id="@+id/removejmh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -262,14 +262,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -282,14 +282,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -302,14 +302,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -322,14 +322,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="2"
                         android:visibility="invisible"/>
 
                     //jour mercredi
@@ -344,13 +344,13 @@
                         style="@style/bouton_remove"
                         android:id="@+id/removejmeh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmeh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -363,14 +363,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmeh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmeh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -383,14 +383,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmeh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmeh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -403,14 +403,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmeh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmeh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -423,14 +423,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejmeh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjmeh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="3"
                         android:visibility="invisible"/>
 
                     //jour jeudi
@@ -445,13 +445,13 @@
                         style="@style/bouton_remove"
                         android:id="@+id/removejjh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjjh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -464,14 +464,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejjh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjjh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -484,14 +484,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejjh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjjh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -504,14 +504,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejjh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjjh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -524,14 +524,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejjh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjjh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="4"
                         android:visibility="invisible"/>
 
                     //jour vendredi
@@ -546,13 +546,13 @@
                         style="@style/bouton_remove"
                         android:id="@+id/removejvh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjvh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -565,14 +565,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejvh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjvh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -585,14 +585,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejvh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjvh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -605,14 +605,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejvh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjvh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -625,14 +625,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejvh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjvh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="5"
                         android:visibility="invisible"/>
 
                     //jour samedi
@@ -647,13 +647,13 @@
                         style="@style/bouton_remove"
                         android:id="@+id/removejsh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjsh8"
                         android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -666,14 +666,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejsh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjsh10"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="2"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -686,14 +686,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejsh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjsh13"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="3"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -706,14 +706,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejsh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjsh15"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="4"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
 
                     <TextView
@@ -726,14 +726,14 @@
                     <ImageButton
                         style="@style/bouton_remove"
                         android:id="@+id/removejsh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
                     <ImageButton
                         style="@style/bouton_forward"
                         android:id="@+id/forwardjsh17"
-                        android:layout_row="1"
-                        android:layout_column="1"
+                        android:layout_row="5"
+                        android:layout_column="6"
                         android:visibility="invisible"/>
 
                 </GridLayout>

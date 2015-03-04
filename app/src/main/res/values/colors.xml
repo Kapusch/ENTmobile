@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--couleurs pleines-->
     <color name="blue">#2C94BB</color>
     <color name="red">#FF5734</color>
     <color name="yellow">#FFC434</color>
@@ -12,4 +13,7 @@
     <color name="springgreen">#00FF7F</color>
     <color name="indigo">#4B0082</color>
     <color name="deeppink">#FF1493</color>
+
+    <!--couleurs transparentes-->
+    <color name="whitetransparent">#80FFFFFF</color>
 </resources>
