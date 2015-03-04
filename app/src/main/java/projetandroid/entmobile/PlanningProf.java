@@ -148,7 +148,7 @@ public class PlanningProf extends ActionBarActivity{
         clique = AnimationUtils.loadAnimation(this, R.anim.fadein);
 
         //Définition du listener des cliques sur les cases
-        initAnim_clic();
+        initAnim_clique();
 
         jlh8.setClickable(true);
         jlh8.setOnClickListener(new OnClickListener() {
@@ -262,7 +262,7 @@ public class PlanningProf extends ActionBarActivity{
 
 
     //Définition du listener de l'animation du clic sur une case du tableau
-    private void initAnim_clic() {
+    private void initAnim_clique() {
         clique.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
