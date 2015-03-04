@@ -150,10 +150,11 @@ public class PlanningProf extends ActionBarActivity{
         //Définition du listener des cliques sur les cases
         initAnim_clique();
 
-        for (i=0;i<30;i++) {
-            if (cellule[i].getText().toString() == "") {
-                cellule[i].setClickable(true);
-                cellule[i].setOnClickListener(new OnClickListener() {
+
+            if (jlh8.getText().toString()=="") {
+                jlh8.setClickable(true);
+                System.out.println("banane");
+                jlh8.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         switch (v.getId()) {
@@ -312,7 +313,7 @@ public class PlanningProf extends ActionBarActivity{
                     }
                 });
             }
-        }
+
 
 
         

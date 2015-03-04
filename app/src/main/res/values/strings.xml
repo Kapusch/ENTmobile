@@ -42,7 +42,7 @@
     <string name="h13">13h30-15h30</string>
     <string name="h15">15h30-17h30</string>
     <string name="h17">17h30-19h30</string>
-    <string name="vide"></string>
+    <string name="vide">""</string>
     <string name="nom_profil">Nom :</string>
     <string name="prenom_profil">Prénom :</string>
     <string name="adresse_profil">Adresse :</string>
