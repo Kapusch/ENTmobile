@@ -150,19 +150,171 @@ public class PlanningProf extends ActionBarActivity{
         //Définition du listener des cliques sur les cases
         initAnim_clique();
 
-        jlh8.setClickable(true);
-        jlh8.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.jlh8:
-                        jlh8.startAnimation(clique);
-                        removejlh8.setVisibility(View.VISIBLE);
-                        forwardjlh8.setVisibility(View.VISIBLE);
-                        break;
-                }
+        for (i=0;i<30;i++) {
+            if (cellule[i].getText().toString() == "") {
+                cellule[i].setClickable(true);
+                cellule[i].setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        switch (v.getId()) {
+                            case R.id.jlh8:
+                                jlh8.startAnimation(clique);
+                                removejlh8.setVisibility(View.VISIBLE);
+                                forwardjlh8.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jlh10:
+                                jlh10.startAnimation(clique);
+                                removejlh10.setVisibility(View.VISIBLE);
+                                forwardjlh10.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jlh13:
+                                jlh13.startAnimation(clique);
+                                removejlh13.setVisibility(View.VISIBLE);
+                                forwardjlh13.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jlh15:
+                                jlh15.startAnimation(clique);
+                                removejlh15.setVisibility(View.VISIBLE);
+                                forwardjlh15.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jlh17:
+                                jlh17.startAnimation(clique);
+                                removejlh17.setVisibility(View.VISIBLE);
+                                forwardjlh17.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmh8:
+                                jmh8.startAnimation(clique);
+                                removejmh8.setVisibility(View.VISIBLE);
+                                forwardjmh8.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmh10:
+                                jmh10.startAnimation(clique);
+                                removejmh10.setVisibility(View.VISIBLE);
+                                forwardjmh10.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmh13:
+                                jlh8.startAnimation(clique);
+                                removejmh13.setVisibility(View.VISIBLE);
+                                forwardjmh13.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmh15:
+                                jmh15.startAnimation(clique);
+                                removejmh15.setVisibility(View.VISIBLE);
+                                forwardjmh15.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmh17:
+                                jmh17.startAnimation(clique);
+                                removejmh17.setVisibility(View.VISIBLE);
+                                forwardjmh17.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmeh8:
+                                jmeh8.startAnimation(clique);
+                                removejmeh8.setVisibility(View.VISIBLE);
+                                forwardjmeh8.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmeh10:
+                                jmeh10.startAnimation(clique);
+                                removejmeh10.setVisibility(View.VISIBLE);
+                                forwardjmeh10.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmeh13:
+                                jmeh13.startAnimation(clique);
+                                removejmeh13.setVisibility(View.VISIBLE);
+                                forwardjmeh13.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmeh15:
+                                jmeh15.startAnimation(clique);
+                                removejmeh15.setVisibility(View.VISIBLE);
+                                forwardjmeh15.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jmeh17:
+                                jmeh17.startAnimation(clique);
+                                removejmeh17.setVisibility(View.VISIBLE);
+                                forwardjmeh17.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jjh8:
+                                jjh8.startAnimation(clique);
+                                removejjh8.setVisibility(View.VISIBLE);
+                                forwardjjh8.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jjh10:
+                                jjh10.startAnimation(clique);
+                                removejjh10.setVisibility(View.VISIBLE);
+                                forwardjjh10.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jjh13:
+                                jjh13.startAnimation(clique);
+                                removejjh13.setVisibility(View.VISIBLE);
+                                forwardjjh13.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jjh15:
+                                jjh15.startAnimation(clique);
+                                removejjh15.setVisibility(View.VISIBLE);
+                                forwardjjh15.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jjh17:
+                                jjh17.startAnimation(clique);
+                                removejjh17.setVisibility(View.VISIBLE);
+                                forwardjjh17.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jvh8:
+                                jvh8.startAnimation(clique);
+                                removejvh8.setVisibility(View.VISIBLE);
+                                forwardjvh8.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jvh10:
+                                jvh10.startAnimation(clique);
+                                removejvh10.setVisibility(View.VISIBLE);
+                                forwardjvh10.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jvh13:
+                                jvh13.startAnimation(clique);
+                                removejvh13.setVisibility(View.VISIBLE);
+                                forwardjvh13.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jvh15:
+                                jvh15.startAnimation(clique);
+                                removejvh15.setVisibility(View.VISIBLE);
+                                forwardjvh15.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jvh17:
+                                jvh17.startAnimation(clique);
+                                removejvh17.setVisibility(View.VISIBLE);
+                                forwardjvh17.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jsh8:
+                                jsh8.startAnimation(clique);
+                                removejsh8.setVisibility(View.VISIBLE);
+                                forwardjsh8.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jsh10:
+                                jsh10.startAnimation(clique);
+                                removejsh10.setVisibility(View.VISIBLE);
+                                forwardjsh10.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jsh13:
+                                jsh13.startAnimation(clique);
+                                removejsh13.setVisibility(View.VISIBLE);
+                                forwardjsh13.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jsh15:
+                                jsh15.startAnimation(clique);
+                                removejsh15.setVisibility(View.VISIBLE);
+                                forwardjsh15.setVisibility(View.VISIBLE);
+                                break;
+                            case R.id.jsh17:
+                                jsh17.startAnimation(clique);
+                                removejsh17.setVisibility(View.VISIBLE);
+                                forwardjsh17.setVisibility(View.VISIBLE);
+                                break;
+
+                        }
+                    }
+                });
             }
-        });
+        }
+
+
         
 
         //Définition des titres
