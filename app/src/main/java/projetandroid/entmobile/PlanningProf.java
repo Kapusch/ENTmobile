@@ -42,10 +42,7 @@ public class PlanningProf extends ActionBarActivity{
     private ImageButton forwardjjh8, forwardjjh10, forwardjjh13, forwardjjh15, forwardjjh17, forwardjvh8, forwardjvh10, forwardjvh13, forwardjvh15, forwardjvh17, forwardjsh8, forwardjsh10, forwardjsh13, forwardjsh15, forwardjsh17;
     private Context context;
     private Animation clique;
-    private TextView cellule[]={jlh8, jlh10, jlh13, jlh15,jlh17, jmh8, jmh10, jmh13, jmh15, jmh17, jmeh8, jmeh10, jmeh13, jmeh15, jmeh17, jjh8, jjh10, jjh13, jjh15, jjh17, jvh8, jvh10, jvh13, jvh15, jvh17, jsh8, jsh10, jsh13, jsh15, jsh17};
-    private ImageButton remove[]={removejlh8, removejlh10, removejlh13, removejlh15,removejlh17, removejmh8, removejmh10, removejmh13, removejmh15, removejmh17, removejmeh8, removejmeh10, removejmeh13, removejmeh15, removejmeh17,removejjh8, removejjh10, removejjh13, removejjh15, removejjh17, removejvh8, removejvh10, removejvh13, removejvh15, removejvh17, removejsh8, removejsh10, removejsh13, removejsh15, removejsh17};
-    private ImageButton forward[]={forwardjlh8, forwardjlh10, forwardjlh13, forwardjlh15,forwardjlh17, forwardjmh8, forwardjmh10, forwardjmh13, forwardjmh15, forwardjmh17, forwardjmeh8, forwardjmeh10, forwardjmeh13, forwardjmeh15, forwardjmeh17,forwardjjh8, forwardjjh10, forwardjjh13, forwardjjh15, forwardjjh17, forwardjvh8, forwardjvh10, forwardjvh13, forwardjvh15, forwardjvh17, forwardjsh8, forwardjsh10, forwardjsh13, forwardjsh15, forwardjsh17};
-    private int i;
+
     private GridLayout tab_planning;
 
     protected void onCreate(Bundle savedInstanceState){
@@ -148,7 +145,7 @@ public class PlanningProf extends ActionBarActivity{
         context = this;
 
         //Définition des éléments de la page
-        tab_planning = (GridLayout)findViewById(R.id.tableau1);
+        tab_planning = (GridLayout)findViewById(R.id.cellule);
 
         //Définition des animations
         clique = AnimationUtils.loadAnimation(this, R.anim.fadein);
@@ -157,170 +154,6 @@ public class PlanningProf extends ActionBarActivity{
         initAnim_clique();
 
         initPlanning();
-
-
-//            if (jlh8.getText().equals(getResources().getString(R.string.vide))) {
-//                jlh8.setClickable(true);
-//                System.out.println("banane");
-//                jlh8.setOnClickListener(new OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        switch (v.getId()) {
-//                            case R.id.jlh8:
-//                                jlh8.startAnimation(clique);
-//                                removejlh8.setVisibility(View.VISIBLE);
-//                                forwardjlh8.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jlh10:
-//                                jlh10.startAnimation(clique);
-//                                removejlh10.setVisibility(View.VISIBLE);
-//                                forwardjlh10.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jlh13:
-//                                jlh13.startAnimation(clique);
-//                                removejlh13.setVisibility(View.VISIBLE);
-//                                forwardjlh13.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jlh15:
-//                                jlh15.startAnimation(clique);
-//                                removejlh15.setVisibility(View.VISIBLE);
-//                                forwardjlh15.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jlh17:
-//                                jlh17.startAnimation(clique);
-//                                removejlh17.setVisibility(View.VISIBLE);
-//                                forwardjlh17.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmh8:
-//                                jmh8.startAnimation(clique);
-//                                removejmh8.setVisibility(View.VISIBLE);
-//                                forwardjmh8.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmh10:
-//                                jmh10.startAnimation(clique);
-//                                removejmh10.setVisibility(View.VISIBLE);
-//                                forwardjmh10.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmh13:
-//                                jlh8.startAnimation(clique);
-//                                removejmh13.setVisibility(View.VISIBLE);
-//                                forwardjmh13.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmh15:
-//                                jmh15.startAnimation(clique);
-//                                removejmh15.setVisibility(View.VISIBLE);
-//                                forwardjmh15.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmh17:
-//                                jmh17.startAnimation(clique);
-//                                removejmh17.setVisibility(View.VISIBLE);
-//                                forwardjmh17.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmeh8:
-//                                jmeh8.startAnimation(clique);
-//                                removejmeh8.setVisibility(View.VISIBLE);
-//                                forwardjmeh8.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmeh10:
-//                                jmeh10.startAnimation(clique);
-//                                removejmeh10.setVisibility(View.VISIBLE);
-//                                forwardjmeh10.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmeh13:
-//                                jmeh13.startAnimation(clique);
-//                                removejmeh13.setVisibility(View.VISIBLE);
-//                                forwardjmeh13.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmeh15:
-//                                jmeh15.startAnimation(clique);
-//                                removejmeh15.setVisibility(View.VISIBLE);
-//                                forwardjmeh15.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jmeh17:
-//                                jmeh17.startAnimation(clique);
-//                                removejmeh17.setVisibility(View.VISIBLE);
-//                                forwardjmeh17.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jjh8:
-//                                jjh8.startAnimation(clique);
-//                                removejjh8.setVisibility(View.VISIBLE);
-//                                forwardjjh8.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jjh10:
-//                                jjh10.startAnimation(clique);
-//                                removejjh10.setVisibility(View.VISIBLE);
-//                                forwardjjh10.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jjh13:
-//                                jjh13.startAnimation(clique);
-//                                removejjh13.setVisibility(View.VISIBLE);
-//                                forwardjjh13.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jjh15:
-//                                jjh15.startAnimation(clique);
-//                                removejjh15.setVisibility(View.VISIBLE);
-//                                forwardjjh15.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jjh17:
-//                                jjh17.startAnimation(clique);
-//                                removejjh17.setVisibility(View.VISIBLE);
-//                                forwardjjh17.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jvh8:
-//                                jvh8.startAnimation(clique);
-//                                removejvh8.setVisibility(View.VISIBLE);
-//                                forwardjvh8.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jvh10:
-//                                jvh10.startAnimation(clique);
-//                                removejvh10.setVisibility(View.VISIBLE);
-//                                forwardjvh10.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jvh13:
-//                                jvh13.startAnimation(clique);
-//                                removejvh13.setVisibility(View.VISIBLE);
-//                                forwardjvh13.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jvh15:
-//                                jvh15.startAnimation(clique);
-//                                removejvh15.setVisibility(View.VISIBLE);
-//                                forwardjvh15.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jvh17:
-//                                jvh17.startAnimation(clique);
-//                                removejvh17.setVisibility(View.VISIBLE);
-//                                forwardjvh17.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jsh8:
-//                                jsh8.startAnimation(clique);
-//                                removejsh8.setVisibility(View.VISIBLE);
-//                                forwardjsh8.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jsh10:
-//                                jsh10.startAnimation(clique);
-//                                removejsh10.setVisibility(View.VISIBLE);
-//                                forwardjsh10.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jsh13:
-//                                jsh13.startAnimation(clique);
-//                                removejsh13.setVisibility(View.VISIBLE);
-//                                forwardjsh13.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jsh15:
-//                                jsh15.startAnimation(clique);
-//                                removejsh15.setVisibility(View.VISIBLE);
-//                                forwardjsh15.setVisibility(View.VISIBLE);
-//                                break;
-//                            case R.id.jsh17:
-//                                jsh17.startAnimation(clique);
-//                                removejsh17.setVisibility(View.VISIBLE);
-//                                forwardjsh17.setVisibility(View.VISIBLE);
-//                                break;
-//
-//                        }
-//                    }
-//                });
-//            }
 
 
 
@@ -365,14 +198,14 @@ public class PlanningProf extends ActionBarActivity{
     //Initialisation des éléments du planning
     private void initPlanning() {
         int max = tab_planning.getChildCount();
-        int i = 12, j, endRow = 24, rowCount = 0;
+        int i = 0, j, endRow = 12, rowCount = 0;
+        ((TextView)tab_planning.getChildAt(0)).setText("L1 Algo");
+        ((TextView)tab_planning.getChildAt(3)).setText("L1 Algo");
+        ((TextView)tab_planning.getChildAt(6)).setText("L1 Algo");
         ((TextView)tab_planning.getChildAt(12)).setText("L1 Algo");
         ((TextView)tab_planning.getChildAt(15)).setText("L1 Algo");
         ((TextView)tab_planning.getChildAt(18)).setText("L1 Algo");
-        ((TextView)tab_planning.getChildAt(24)).setText("L1 Algo");
-        ((TextView)tab_planning.getChildAt(27)).setText("L1 Algo");
-        ((TextView)tab_planning.getChildAt(30)).setText("L1 Algo");
-        ((TextView)tab_planning.getChildAt(39)).setText("L1 Algo");
+        ((TextView)tab_planning.getChildAt(75)).setText("L1 Algo");
 //        Toast.makeText(getApplicationContext(), String.valueOf(max), Toast.LENGTH_SHORT).show();
         while (rowCount < 6){
             for (j = i ; j <= endRow ; j+=3){
@@ -386,7 +219,7 @@ public class PlanningProf extends ActionBarActivity{
                         public void onClick(View v) {
                             if(remove_button_temp.getVisibility() == View.INVISIBLE && forward_button_temp.getVisibility() == View.INVISIBLE){
                                 cellule_temp.startAnimation(clique);
-//                                cellule_temp.setBackgroundColor(R.color.whitetransparent);
+//                              cellule_temp.setBackgroundColor(R.color.whitetransparent);
                                 remove_button_temp.setVisibility(View.VISIBLE);
                                 forward_button_temp.setVisibility(View.VISIBLE);
                                 //Evenements sur clique du bouton
