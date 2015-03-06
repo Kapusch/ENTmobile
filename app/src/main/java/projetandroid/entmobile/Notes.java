@@ -205,7 +205,6 @@ public class Notes extends ActionBarActivity{
                     initalertEditNoteBuilder(position);
                     alertEditNote = alertEditNoteBuilder.create();
                     alertEditNote.show();
-                    //Finir de déboguer
                     ((ViewGroup)v.getParent()).removeView(editNote);
                 }
             });

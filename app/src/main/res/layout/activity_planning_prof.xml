@@ -23,8 +23,8 @@
 
 
                 <GridLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
                     android:rowCount="6"
                     android:columnCount="7"
                     android:id="@+id/tableau1"
@@ -103,7 +103,7 @@
 
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jlh8"
                             android:layout_row="0"
@@ -122,7 +122,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jlh10"
                             android:layout_row="1"
@@ -142,7 +142,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jlh13"
                             android:layout_row="2"
@@ -162,7 +162,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jlh15"
                             android:layout_row="3"
@@ -182,7 +182,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jlh17"
                             android:layout_row="4"
@@ -204,7 +204,7 @@
                         //jour mardi
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmh8"
                             android:layout_row="0"
@@ -224,7 +224,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmh10"
                             android:layout_row="1"
@@ -244,7 +244,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmh13"
                             android:layout_row="2"
@@ -264,7 +264,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmh15"
                             android:layout_row="3"
@@ -284,7 +284,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmh17"
                             android:layout_row="4"
@@ -305,7 +305,7 @@
 
                         //jour mercredi
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmeh8"
                             android:layout_row="0"
@@ -325,7 +325,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmeh10"
                             android:layout_row="1"
@@ -345,7 +345,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmeh13"
                             android:layout_row="2"
@@ -365,7 +365,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmeh15"
                             android:layout_row="3"
@@ -385,7 +385,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jmeh17"
                             android:layout_row="4"
@@ -406,7 +406,7 @@
 
                         //jour jeudi
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jjh8"
                             android:layout_row="0"
@@ -426,7 +426,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jjh10"
                             android:layout_row="1"
@@ -446,7 +446,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jjh13"
                             android:layout_row="2"
@@ -466,7 +466,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jjh15"
                             android:layout_row="3"
@@ -486,7 +486,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jjh17"
                             android:layout_row="4"
@@ -507,7 +507,7 @@
 
                         //jour vendredi
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jvh8"
                             android:layout_row="0"
@@ -527,7 +527,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jvh10"
                             android:layout_row="1"
@@ -547,7 +547,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jvh13"
                             android:layout_row="2"
@@ -567,7 +567,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jvh15"
                             android:layout_row="3"
@@ -587,7 +587,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jvh17"
                             android:layout_row="4"
@@ -608,7 +608,7 @@
 
                         //jour samedi
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jsh8"
                             android:layout_row="0"
@@ -628,7 +628,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jsh10"
                             android:layout_row="1"
@@ -648,7 +648,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jsh13"
                             android:layout_row="2"
@@ -668,7 +668,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jsh15"
                             android:layout_row="3"
@@ -688,7 +688,7 @@
                             android:visibility="invisible"/>
 
                         <TextView
-                            style="@style/textCellule"
+                            style="@style/textCellule_content"
                             android:text="@string/vide"
                             android:id="@+id/jsh17"
                             android:layout_row="4"

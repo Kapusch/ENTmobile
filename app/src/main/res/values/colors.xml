@@ -15,5 +15,5 @@
     <color name="deeppink">#FF1493</color>
 
     <!--couleurs transparentes-->
-    <color name="whitetransparent">#80FFFFFF</color>
+    <color name="whitetransparent">#40FFFFFF</color>
 </resources>
