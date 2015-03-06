@@ -50,15 +50,15 @@
                     />
                 <TextView
                     style="@style/tableau_profil_col_attributes"
-                    android:text="@string/telephone_profil"
-                    android:id="@+id/telephone_profil"
+                    android:text="@string/email_profil"
+                    android:id="@+id/email_profil"
                     android:layout_row="3"
                     android:layout_column="0"
                     />
                 <TextView
                     style="@style/tableau_profil_col_attributes"
-                    android:text="@string/email_profil"
-                    android:id="@+id/email_profil"
+                    android:text="@string/telephone_profil"
+                    android:id="@+id/telephone_profil"
                     android:layout_row="4"
                     android:layout_column="0"
                     />
@@ -95,6 +95,7 @@
                     style="@style/tableau_profil_col_values_edit"
                     android:text=""
                     android:id="@+id/email_profil_val"
+                    android:inputType="textEmailAddress"
                     android:layout_row="3"
                     android:layout_column="1"
                     />
@@ -102,6 +103,7 @@
                     style="@style/tableau_profil_col_values_edit"
                     android:text=""
                     android:id="@+id/telephone_profil_val"
+                    android:inputType="phone"
                     android:layout_row="4"
                     android:layout_column="1"
                     />
@@ -119,12 +121,12 @@
                     android:layout_column="2" />
                 <ImageButton
                     style="@style/tableau_profil_bouton_cancel"
-                    android:id="@+id/telephone_profil_cancel"
+                    android:id="@+id/email_profil_cancel"
                     android:layout_row="3"
                     android:layout_column="2" />
                 <ImageButton
                     style="@style/tableau_profil_bouton_cancel"
-                    android:id="@+id/email_profil_cancel"
+                    android:id="@+id/telephone_profil_cancel"
                     android:layout_row="4"
                     android:layout_column="2" />
                 <ImageButton
@@ -139,12 +141,12 @@
                     android:layout_column="3" />
                 <ImageButton
                     style="@style/tableau_profil_bouton_validate"
-                    android:id="@+id/telephone_profil_validate"
+                    android:id="@+id/email_profil_validate"
                     android:layout_row="3"
                     android:layout_column="3" />
                 <ImageButton
                     style="@style/tableau_profil_bouton_validate"
-                    android:id="@+id/email_profil_validate"
+                    android:id="@+id/telephone_profil_validate"
                     android:layout_row="4"
                     android:layout_column="3" />
                 <ImageButton
