@@ -19,7 +19,7 @@
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
-    <string name="alertConfirmToast">La salle que vous avez choisie a bien été réservée.</string>
+    <string name="alertConfirmToast">La salle que vous avez choisie a bien été réservée</string>
     <string name="boutonCo2Toast">Vous êtes désormais connecté(e) ...</string>
     <string name="drawer_open">Menu principal ouvert</string>
     <string name="drawer_close">Menu principal fermé</string>

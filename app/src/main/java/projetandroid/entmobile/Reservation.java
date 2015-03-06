@@ -13,11 +13,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -94,6 +98,9 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
     private int index_capacite = 2;
     private int index_horaire = 3;
     private Animation anim_clic_on_item;
+    private ArrayAdapter<String> spinnerAdapter;
+    private Spinner select_ue;
+    private String ue_toast_confirm;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -121,6 +128,8 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         nom_equipement_b = (Spinner)findViewById(R.id.nom_equipement_b);
         horaire_debut_cours = (Spinner)findViewById(R.id.horaire_debut_cours);
         table_results = (TableLayout)findViewById(R.id.table_recherche_results);
+        select_ue = new Spinner(this);
+        ue_toast_confirm = getResources().getString(R.string.select_ue);
 
 
         //Définition des éléments de sélection
@@ -241,7 +250,9 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
 
     //Définition du contenu de la boîte de dialogue
     private void initalertConfirmBuilder(int i) {
+        setContentListeUE();
         alertConfirmBuilder.setTitle(R.string.alertReservationTitle);
+        alertConfirmBuilder.setView(select_ue);
         String confirm_txt = getResources().getString(R.string.alertReservationMessage);
         TableRow temp_row = (TableRow)table_results.getChildAt(i);
         TextView temp_salle = (TextView)temp_row.getChildAt(index_nom_salle);
@@ -253,18 +264,18 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         String nom_date = jour+"-"+(mois+1)+"-"+annee;
         alertConfirmBuilder.setMessage(confirm_txt+" "+nom_salle+" du département "+departement+" le "+nom_date+" à "+horaire+" ?");
         alertConfirmBuilder.setIcon(R.drawable.ic_action_time);
-
         alertConfirmBuilder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                /* TODO */
-                /*Code à définir pour réserver une salle dans la bdd*/
+            /* TODO */
+            /*Code à définir pour réserver une salle dans la bdd*/
                 reinitialize();
                 panelRecherche_salle_results.startAnimation(anim_panelRecherche_salle_results_hide);
                 panelRecherche_salle_results.setVisibility(View.INVISIBLE);
                 panelRecherche_salle.startAnimation(anim_panelRecherche_salle_show);
                 panelRecherche_salle.setVisibility(View.VISIBLE);
-                Toast.makeText(getApplicationContext(), R.string.alertConfirmToast, Toast.LENGTH_SHORT).show();
+                String alertConfirmToast = getResources().getString(R.string.alertConfirmToast).concat("pour l'UE : "+ue_toast_confirm);
+                Toast.makeText(getApplicationContext(), alertConfirmToast, Toast.LENGTH_SHORT).show();
             }
         });
         alertConfirmBuilder.setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
@@ -387,6 +398,47 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
         duree_cours_text.setText(getResources().getString(R.string.recherche_duree_cours_text));
         horaire_debut_cours.setSelection(0);
         table_results.removeAllViews();
+    }
+
+    // Remplit le spinner pour choisir une UE
+    private void setContentListeUE() {
+        select_ue = new Spinner(this);
+        spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown_item_b, android.R.id.text1);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        select_ue.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        select_ue.setAdapter(spinnerAdapter);
+        select_ue.setBackgroundDrawable(getResources().getDrawable(R.drawable.rectangle_b));
+        spinnerAdapter.add(getResources().getString(R.string.select_ue));
+        /*TODO*/
+        //Ici le code pour récupérer la liste des UE du prof connecté.
+        spinnerAdapter.add("L1 Info - Algorithmique - CM");
+        spinnerAdapter.add("L1 Info - Algorithmique - TD");
+        spinnerAdapter.add("L3 Info - Programmation Java - TP");
+        spinnerAdapter.add("L2 Info - Architecture Système - TP");
+        spinnerAdapter.add("L2 Info - Technologies Web - TP");
+        select_ue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                parent.startAnimation(anim_clic_on_item);
+                ue_toast_confirm = parent.getItemAtPosition(position).toString();
+                if(ue_toast_confirm.equals(getResources().getString(R.string.select_ue))){
+                    alertConfirm.getButton(AlertDialog.BUTTON1).setEnabled(false);
+                }else {
+                    alertConfirm.getButton(AlertDialog.BUTTON1).setEnabled(true);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        select_ue.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.startAnimation(anim_clic_on_item);
+                return false;
+            }
+        });
+        spinnerAdapter.notifyDataSetChanged();
     }
 
     @Override

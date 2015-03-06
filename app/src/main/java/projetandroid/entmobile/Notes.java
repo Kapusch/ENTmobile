@@ -113,6 +113,7 @@ public class Notes extends ActionBarActivity{
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
     }
 
+    // Remplit le spinner pour choisir une UE
     private void setContentListeUE() {
         spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown_item, android.R.id.text1);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
