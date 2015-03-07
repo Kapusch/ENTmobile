@@ -274,7 +274,7 @@ public class Reservation extends ActionBarActivity implements View.OnClickListen
                 panelRecherche_salle_results.setVisibility(View.INVISIBLE);
                 panelRecherche_salle.startAnimation(anim_panelRecherche_salle_show);
                 panelRecherche_salle.setVisibility(View.VISIBLE);
-                String alertConfirmToast = getResources().getString(R.string.alertConfirmToast).concat("pour l'UE : "+ue_toast_confirm);
+                String alertConfirmToast = getResources().getString(R.string.alertConfirmToast).concat(" pour l'UE : "+ue_toast_confirm);
                 Toast.makeText(getApplicationContext(), alertConfirmToast, Toast.LENGTH_SHORT).show();
             }
         });
