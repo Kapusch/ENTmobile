@@ -3,13 +3,18 @@ package projetandroid.entmobile;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,6 +23,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,15 +46,66 @@ public class PlanningProf extends ActionBarActivity{
     private ImageButton forwardjjh8, forwardjjh10, forwardjjh13, forwardjjh15, forwardjjh17, forwardjvh8, forwardjvh10, forwardjvh13, forwardjvh15, forwardjvh17, forwardjsh8, forwardjsh10, forwardjsh13, forwardjsh15, forwardjsh17;
     private Context context;
     private Animation clique;
-    private TextView cellule[]={jlh8, jlh10, jlh13, jlh15,jlh17, jmh8, jmh10, jmh13, jmh15, jmh17, jmeh8, jmeh10, jmeh13, jmeh15, jmeh17, jjh8, jjh10, jjh13, jjh15, jjh17, jvh8, jvh10, jvh13, jvh15, jvh17, jsh8, jsh10, jsh13, jsh15, jsh17};
-    private ImageButton remove[]={removejlh8, removejlh10, removejlh13, removejlh15,removejlh17, removejmh8, removejmh10, removejmh13, removejmh15, removejmh17, removejmeh8, removejmeh10, removejmeh13, removejmeh15, removejmeh17,removejjh8, removejjh10, removejjh13, removejjh15, removejjh17, removejvh8, removejvh10, removejvh13, removejvh15, removejvh17, removejsh8, removejsh10, removejsh13, removejsh15, removejsh17};
-    private ImageButton forward[]={forwardjlh8, forwardjlh10, forwardjlh13, forwardjlh15,forwardjlh17, forwardjmh8, forwardjmh10, forwardjmh13, forwardjmh15, forwardjmh17, forwardjmeh8, forwardjmeh10, forwardjmeh13, forwardjmeh15, forwardjmeh17,forwardjjh8, forwardjjh10, forwardjjh13, forwardjjh15, forwardjjh17, forwardjvh8, forwardjvh10, forwardjvh13, forwardjvh15, forwardjvh17, forwardjsh8, forwardjsh10, forwardjsh13, forwardjsh15, forwardjsh17};
-    private int i;
+    private GridLayout tab_planning;
+    private AlertDialog alertModifyPlanning;
+    private AlertDialog.Builder alertModifyPlanningBuilder;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning_prof);
 
+        context = this;
+
+        //Définition des animations
+        clique = AnimationUtils.loadAnimation(this, R.anim.fadein);
+
+        //Définition du listener des cliques sur les cases
+        initAnim_clique();
+
+        //Définition du planning
+        initPlanning();
+
+        //Définition de la boîte de dialogue de confirmation de modification de la note
+        alertModifyPlanningBuilder = new AlertDialog.Builder(this);
+
+        //Définition des titres
+        titleBar = getResources().getString(R.string.label_planning_prof);
+        titleMenu = getResources().getString(R.string.label_menu);
+
+        // Récupérer les items du menu et la vue du menu
+        drawerListViewItems = getResources().getStringArray(R.array.menu_items_planning_prof);
+        drawerListView = (ListView) findViewById(R.id.left_drawer_planning_prof);
+
+        // Initialisation de l'adapter
+        drawerListView.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_listview_item, drawerListViewItems));
+
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout_planning_prof);
+
+        // Définition de la gestion d'ouverture/fermeture du menu sur glisser du doigt
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close){
+            //Menu fermé : gestion du titre de l'activité
+            public void onDrawerClosed(View view){
+                getSupportActionBar().setTitle(titleBar);
+            }
+            //Menu ouvert : gestion du titre du menu
+            public void onDrawerOpened(View view){
+                getSupportActionBar().setTitle(titleMenu);
+            }
+        };
+
+        // Définition du listener du menu
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+
+        // Définition d'un bouton pour ouvrir le menu
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+
+        // Gestion du clic sur un item du menu
+        drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+    }
+
+    //Définition des éléments de la page
+    private void setElementsFromLayout() {
         jlh8 = (TextView)findViewById(R.id.jlh8);
         jlh10 = (TextView)findViewById(R.id.jlh10);
         jlh13 = (TextView)findViewById(R.id.jlh13);
@@ -141,64 +198,115 @@ public class PlanningProf extends ActionBarActivity{
         forwardjsh13 = (ImageButton)findViewById(R.id.forwardjsh13);
         forwardjsh15 = (ImageButton)findViewById(R.id.forwardjsh15);
         forwardjsh17 = (ImageButton)findViewById(R.id.forwardjsh17);
+    }
 
-        context = this;
+    //Initialisation des éléments du planning
+    private void initPlanning() {
+//        int max = tab_planning.getChildCount();
+        tab_planning = (GridLayout)findViewById(R.id.cellule);
+        setElementsFromLayout();
+        int i = 0, j, endRow = 12, rowCount = 0;
+        ((TextView)tab_planning.getChildAt(0)).setText("L1-Info Algorithmique (CM)");
+        ((TextView)tab_planning.getChildAt(3)).setText("L1-Info Algorithmique (CM)");
+        ((TextView)tab_planning.getChildAt(6)).setText("L1-Info Algorithmique (CM)");
+        ((TextView)tab_planning.getChildAt(12)).setText("M1-Info Processus stochastiques et heuristiques (CM)");
+        ((TextView)tab_planning.getChildAt(15)).setText("M1-Info Modélisation et optimisation des systèmes (CM)");
+        ((TextView)tab_planning.getChildAt(18)).setText("M1-Info Modélisation et optimisation des systèmes (CM)");
+        ((TextView)tab_planning.getChildAt(75)).setText("L3-Info Projet d'étude de cas tutoré (TP)");
+//        Toast.makeText(getApplicationContext(), String.valueOf(max), Toast.LENGTH_SHORT).show();
+        while (rowCount < 6){
+            for (j = i ; j <= endRow ; j+=3){
+                final TextView cellule_temp = (TextView)tab_planning.getChildAt(j);
+                if(!(cellule_temp.getText().equals(getResources().getString(R.string.vide)))){
+                    cellule_temp.setClickable(true);
+                    final ImageButton remove_button_temp = (ImageButton)tab_planning.getChildAt(j+1);
+                    final ImageButton forward_button_temp  = (ImageButton)tab_planning.getChildAt(j+2);
+                    final int finalJ = j;
+                    cellule_temp.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if(remove_button_temp.getVisibility() == View.INVISIBLE && forward_button_temp.getVisibility() == View.INVISIBLE){
+                                cellule_temp.startAnimation(clique);
+                                final String cours_txt = cellule_temp.getText().toString();
+                                cellule_temp.setTextColor(getResources().getColor(R.color.whitetransparent));
+                                remove_button_temp.setVisibility(View.VISIBLE);
+                                forward_button_temp.setVisibility(View.VISIBLE);
+                                //Evenements sur clique du bouton
+                                remove_button_temp.setOnClickListener(new OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        remove_button_temp.startAnimation(clique);
+                                        initalertModifyPlanningBuilder(" supprimer ", cours_txt, finalJ);
+                                        alertModifyPlanning = alertModifyPlanningBuilder.create();
+                                        alertModifyPlanning.show();
+                                    }
+                                });
+                                forward_button_temp.setOnClickListener(new OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        forward_button_temp.startAnimation(clique);
+                                        initalertModifyPlanningBuilder(" déplacer ", cours_txt, finalJ);
+                                        alertModifyPlanning = alertModifyPlanningBuilder.create();
+                                        alertModifyPlanning.show();
+                                    }
+                                });
+                            }else{
+                                cellule_temp.startAnimation(clique);
+                                cellule_temp.setTextColor(getResources().getColor(R.color.white));
+                                remove_button_temp.setVisibility(View.INVISIBLE);
+                                forward_button_temp.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                    });
+                    cellule_temp.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            Toast.makeText(getApplicationContext(), cellule_temp.getText().toString(), Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
+                    });
+                }
+            }
+            i = j;
+            endRow = i + 12;
+            rowCount++;
+        }
+    }
 
-        //Définition des animations
-        clique = AnimationUtils.loadAnimation(this, R.anim.fadein);
-
-        //Définition du listener des cliques sur les cases
-        initAnim_clique();
-
-        jlh8.setClickable(true);
-        jlh8.setOnClickListener(new OnClickListener() {
+    //Création de la boîte de dialogue pour supprimer ou déplacer un cours
+    private void initalertModifyPlanningBuilder(final String action_txt, String cours_txt, final int position) {
+        String confirm_txt = getResources().getString(R.string.alertModificationPlanningMessage).concat(action_txt).concat(cours_txt+" ?");
+        alertModifyPlanningBuilder.setTitle((R.string.alertModificationPlanningTitle));
+        alertModifyPlanningBuilder.setMessage(confirm_txt);
+        alertModifyPlanningBuilder.setIcon(R.drawable.ic_action_edit);
+        alertModifyPlanningBuilder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.jlh8:
-                        jlh8.startAnimation(clique);
-                        removejlh8.setVisibility(View.VISIBLE);
-                        forwardjlh8.setVisibility(View.VISIBLE);
-                        break;
+            public void onClick(DialogInterface dialog, int which) {
+                /* TODO */
+                /*Code à définir pour prendre en compte la suppression du cours sélectionné dans la BDD*/
+                TextView new_cell = (TextView)tab_planning.getChildAt(position);
+                ImageButton new_cell_button_r = (ImageButton)tab_planning.getChildAt(position+1);
+                ImageButton new_cell_button_f = (ImageButton)tab_planning.getChildAt(position+2);
+                Toast.makeText(getApplicationContext(), R.string.alertConfirmPlanningModifiedToast, Toast.LENGTH_SHORT).show();
+                if(action_txt.equals(" supprimer ")){
+                    //On modifie l'affichage du planning modifié
+                    new_cell.setText(getResources().getString(R.string.vide));
+                    new_cell_button_r.setVisibility(View.INVISIBLE);
+                    new_cell_button_f.setVisibility(View.INVISIBLE);
+                    new_cell.setEnabled(false);
+                }else {
+                    //On charge l'activité de réservation d'une nouvelle salle
+                    intent = new Intent(PlanningProf.this, Reservation.class);
+                    startActivity(intent);
                 }
             }
         });
-        
-
-        //Définition des titres
-        titleBar = getResources().getString(R.string.label_planning_prof);
-        titleMenu = getResources().getString(R.string.label_menu);
-
-        // Récupérer les items du menu et la vue du menu
-        drawerListViewItems = getResources().getStringArray(R.array.menu_items_planning_prof);
-        drawerListView = (ListView) findViewById(R.id.left_drawer_planning_prof);
-
-        // Initialisation de l'adapter
-        drawerListView.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_listview_item, drawerListViewItems));
-
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout_planning_prof);
-
-        // Définition de la gestion d'ouverture/fermeture du menu sur glisser du doigt
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close){
-            //Menu fermé : gestion du titre de l'activité
-            public void onDrawerClosed(View view){
-                getSupportActionBar().setTitle(titleBar);
+        alertModifyPlanningBuilder.setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
             }
-            //Menu ouvert : gestion du titre du menu
-            public void onDrawerOpened(View view){
-                getSupportActionBar().setTitle(titleMenu);
-            }
-        };
-
-        // Définition du listener du menu
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
-
-        // Définition d'un bouton pour ouvrir le menu
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-
-        // Gestion du clic sur un item du menu
-        drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+        });
     }
 
     @Override

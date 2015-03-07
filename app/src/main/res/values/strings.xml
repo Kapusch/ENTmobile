@@ -14,8 +14,10 @@
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
     <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
     <string name="alertModificationNoteTitle"><b>Modification de la note</b></string>
+    <string name="alertModificationPlanningTitle"><b>Modification du créneau de réservation</b></string>
     <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="alertModificationNoteMessage">Confirmez-vous la modification de la note actuelle de  </string>
+    <string name="alertModificationPlanningMessage">Souhaitez-vous poursuivre et</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
@@ -37,11 +39,11 @@
     <string name="jeudi">Jeudi</string>
     <string name="vendredi">Vendredi</string>
     <string name="samedi">Samedi</string>
-    <string name="h8">08h00-10h00</string>
-    <string name="h10">10h00-12h00</string>
-    <string name="h13">13h30-15h30</string>
-    <string name="h15">15h30-17h30</string>
-    <string name="h17">17h30-19h30</string>
+    <string name="h8">08h00–10h00</string>
+    <string name="h10">10h00–12h00</string>
+    <string name="h13">13h30–15h30</string>
+    <string name="h15">15h30–17h30</string>
+    <string name="h17">17h30–19h30</string>
     <string name="vide"></string>
     <string name="nom_profil">Nom :</string>
     <string name="prenom_profil">Prénom :</string>
@@ -59,6 +61,9 @@
     <string name="recherche_effectif_text">Effectif total : </string>
     <string name="recherche_date_text">jj / mm / aaaa</string>
     <string name="recherche_duree_cours_text">Durée du cours (heures) : </string>
+    <string name="select_ue">Sélectionner une Unité d\'Enseignement</string>
+    <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
+    <string name="alertConfirmPlanningModifiedToast">La modification du planning a bien été prise en compte.</string>
 
     <!--Strings array pour les items des menus de chaque activité-->
     <string-array name="menu_items_accueil">
@@ -167,10 +172,6 @@
         <item>Début du cours à 17:30</item>
         <item>Début du cours à 18:30</item>
     </string-array>
-    
-    <!--Liste des Ue sélectionnées (temporaires)-->
-    <string name="select_ue">Sélectionner une Unité d\'Enseignement</string>
-    <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
 
 
 </resources>

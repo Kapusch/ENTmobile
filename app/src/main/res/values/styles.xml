@@ -67,14 +67,32 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="textTableau">
+    <style name="textCellule">
         <item name="android:layout_width">150dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/bordurecase</item>
+    </style>
+
+    <style name="textCellule_content" parent="textCellule">
+        <item name="android:layout_gravity">fill_vertical</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="textJour" parent="textCellule">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/bordurecase</item>
+    </style>
+
+    <style name="textHoraire" parent="textJour">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">10sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
     </style>
 
     <style name="bouton_tableau">
@@ -89,13 +107,11 @@
 
     <style name="bouton_remove" parent="bouton_tableau">
         <item name="android:layout_gravity">center_vertical|left</item>
-        <item name="android:layout_marginLeft">10dp</item>
         <item name="android:background">@drawable/ic_action_remove</item>
     </style>
 
     <style name="bouton_forward" parent="bouton_tableau">
         <item name="android:layout_gravity">center_vertical|right</item>
-        <item name="android:layout_marginRight">10dp</item>
         <item name="android:background">@drawable/ic_action_forward</item>
     </style>
 
