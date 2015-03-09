@@ -10,6 +10,13 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin" >
+
+        <!-- SearchBar View -->
+        <TextView
+            android:id="@+id/text_status_searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"/>
     </RelativeLayout>
 
 
@@ -25,5 +32,6 @@
         android:paddingLeft="15sp"
         android:paddingRight="15sp"
         />
+
 
 </android.support.v4.widget.DrawerLayout>
