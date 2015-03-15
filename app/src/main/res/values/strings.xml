@@ -14,9 +14,13 @@
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
     <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
     <string name="alertModificationNoteTitle"><b>Modification de la note</b></string>
+    <string name="alertSuppressionUETitle"><b>Suppression de l\'UE</b></string>
+    <string name="alertAjoutUETitle"><b>Ajout d\'une l\'UE</b></string>
     <string name="alertModificationPlanningTitle"><b>Modification du créneau de réservation</b></string>
     <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="alertModificationNoteMessage">Confirmez-vous la modification de la note actuelle de  </string>
+    <string name="alertSuppressionUEMessage">Souhaitez-vous supprimer de votre liste de préférences l\'UE suivante :  </string>
+    <string name="alertAjoutUEMessage">Souhaitez-vous ajouter à votre liste de préférences l\'UE suivante :  </string>
     <string name="alertModificationPlanningMessage">Souhaitez-vous poursuivre et</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
@@ -159,6 +163,8 @@
 
     <!--Liste créneaux horaires début de cours-->
     <string name="horaire_debut_cours">Horaire du début du cours</string>
+    <string name="titre_table_preferences_UE">Liste de préférences des UE</string>
+    <string name="titre_table_recherche_UE">Résultats de la recherche des UE</string>
     <string-array name="horaire_debut_cours_items">
         <item>Horaire du début du cours</item>
         <item>Début du cours à 08:00</item>

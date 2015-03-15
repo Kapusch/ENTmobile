@@ -5,19 +5,80 @@
     android:layout_height="match_parent">
 
     <!-- The main content view -->
-    <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" >
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- SearchBar View -->
-        <TextView
-            android:id="@+id/text_status_searchBar"
-            android:layout_width="match_parent"
+        <!--Les titres des tableaux-->
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"/>
-    </RelativeLayout>
+            android:orientation="horizontal">
+            <TextView
+                style="@style/textTitres_UE"
+                android:visibility="visible"
+                android:text="@string/titre_table_preferences_UE"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+            <TextView
+                style="@style/textTitres_UE"
+                android:visibility="visible"
+                android:text="@string/titre_table_recherche_UE"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+            </LinearLayout>
+
+        <!--Les tableaux-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <!--Liste des UE déjà choisies-->
+            <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/scrollView_table_UE_preferences"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/rectangle"
+                android:layout_weight="1">
+                <TableLayout
+                    android:id="@+id/table_UE_preferences"
+                    android:layout_width="fill_parent"
+                    android:stretchColumns="0"
+                    android:layout_height="wrap_content">
+                </TableLayout>
+            </ScrollView>
+
+            <!--Affichage des résultats de la recherche d'UE-->
+            <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/scrollView_table_UE_results"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/rectangle"
+                android:layout_weight="1">
+                <TableLayout
+                    android:id="@+id/table_UE_results"
+                    android:layout_width="fill_parent"
+                    android:stretchColumns="0"
+                    android:layout_height="wrap_content">
+                </TableLayout>
+            </ScrollView>
+
+
+            </LinearLayout>
+
+
+
+
+        <!-- Recherche txt View -->
+        <!--<TextView-->
+            <!--android:id="@+id/text_status_searchBar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_horizontal"/>-->
+    </LinearLayout>
 
 
     <!-- The navigation drawer -->
