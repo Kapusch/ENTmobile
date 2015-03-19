@@ -80,7 +80,7 @@ public class PlanningProf extends ActionBarActivity{
         //Définition du planning
         initPlanning();
 
-        //Définition de la boîte de dialogue de confirmation de modification de la note
+        //Définition de la boîte de dialogue de confirmation de modification du planning
         alertModifyPlanningBuilder = new AlertDialog.Builder(this);
 
         //Définition de la semaine en cours
