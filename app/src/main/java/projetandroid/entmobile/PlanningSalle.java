@@ -158,13 +158,13 @@ public class PlanningSalle extends ActionBarActivity{
     private void initPlanning() {
         int max = tab_planning.getChildCount();
         int i = 0, j, endRow = 8, rowCount = 0;
-        ((TextView) tab_planning.getChildAt(0)).setText("L1 Algo");
-        ((TextView) tab_planning.getChildAt(2)).setText("L1 Algo");
-        ((TextView) tab_planning.getChildAt(6)).setText("L1 Algo");
-        ((TextView) tab_planning.getChildAt(12)).setText("L1 Algo");
-        ((TextView) tab_planning.getChildAt(16)).setText("L1 Algo");
-        ((TextView) tab_planning.getChildAt(18)).setText("L1 Algo");
-        ((TextView) tab_planning.getChildAt(50)).setText("L1 Algo");
+        ((TextView) tab_planning.getChildAt(0)).setText("L1-Info Algorithmique (CM) -- SC_3005 Maths-Info");
+        ((TextView) tab_planning.getChildAt(2)).setText("L1-Info Algorithmique (CM) -- SC_3002 Maths-Info");
+        ((TextView) tab_planning.getChildAt(6)).setText("M1-Info Processus stochastiques et heuristiques (CM) -- Amphi 9001 Dpt. Physique");
+        ((TextView) tab_planning.getChildAt(12)).setText("L3-Info Projet d'étude de cas tutoré (TP) -- Amphi 9001 Dpt. Physique");
+        ((TextView) tab_planning.getChildAt(16)).setText("M1-Info Modélisation et optimisation des systèmes (CM) -- SC_3005 Maths-Info");
+        ((TextView) tab_planning.getChildAt(18)).setText("L3-Info Projet d'étude de cas tutoré (TP) -- Amphi 9001 Dpt. Physique");
+        ((TextView) tab_planning.getChildAt(50)).setText("M1-Info Processus stochastiques et heuristiques (CM) -- Amphi 9001 Dpt. Physique");
 //        Toast.makeText(getApplicationContext(), String.valueOf(max), Toast.LENGTH_SHORT).show();
         while (rowCount < 6) {
             for (j = i; j <= endRow; j += 2) {

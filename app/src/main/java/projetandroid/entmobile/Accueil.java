@@ -34,9 +34,9 @@ public class Accueil extends ActionBarActivity{
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private CharSequence titleBar;
     private CharSequence titleMenu;
-    private Calendar semaine_actu;
     Intent intent;
     private GridLayout planning;
+    private Calendar semaine_actu;
     private Calendar date;
     private int jour;
     private int mois;
