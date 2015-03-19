@@ -62,6 +62,7 @@
     <string name="recherche_date_text">jj / mm / aaaa</string>
     <string name="recherche_duree_cours_text">Durée du cours (heures) : </string>
     <string name="select_ue">Sélectionner une Unité d\'Enseignement</string>
+    <string name="select_date">Sélectionner une date</string>
     <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
     <string name="alertConfirmPlanningModifiedToast">La modification du planning a bien été prise en compte.</string>
 
