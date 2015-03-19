@@ -12,9 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Accueil extends ActionBarActivity{
 
@@ -24,11 +29,17 @@ public class Accueil extends ActionBarActivity{
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private CharSequence titleBar;
     private CharSequence titleMenu;
+    private Calendar semaine_actu;
     Intent intent;
+    private GridLayout planning;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
+
+        //Définition de la semaine en cours
+        setSemaineActu();
+
 
         //Définition des titres
         titleBar = getResources().getString(R.string.label_accueil);
@@ -64,6 +75,37 @@ public class Accueil extends ActionBarActivity{
 
         // Gestion du clic sur un item du menu
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+    }
+
+    //Récupération et édit de la semaine en cours
+    private void setSemaineActu() {
+        //Récupération de la semaine
+        planning = (GridLayout)findViewById(R.id.tableau1);
+        semaine_actu = semaine_actu.getInstance();
+        int week_actu_number = semaine_actu.get(Calendar.WEEK_OF_YEAR);
+        int year_actu_number = semaine_actu.get(Calendar.YEAR);
+        //Ecrire le mois seulement dans la barre d'action à côté du bouton calendrier
+        //SimpleDateFormat month_format = new SimpleDateFormat("MMMM");
+        //String month_name = month_format.format(semaine_actu.getTime()).toUpperCase();
+        String[] days = {getResources().getString(R.string.lundi), getResources().getString(R.string.mardi), getResources().getString(R.string.mercredi), getResources().getString(R.string.jeudi), getResources().getString(R.string.vendredi), getResources().getString(R.string.samedi)};
+        TextView cell_temp = (TextView)planning.getChildAt(0);
+        String date_temp = "Semaine n°"+String.valueOf(semaine_actu.get(Calendar.WEEK_OF_YEAR));
+        cell_temp.setText(date_temp);
+
+        //Récupération des jours de la semaine
+        semaine_actu.clear();
+        semaine_actu.set(Calendar.WEEK_OF_YEAR, week_actu_number);
+        semaine_actu.set(Calendar.YEAR, year_actu_number);SimpleDateFormat formatter = new SimpleDateFormat("dd");
+        Date startDate;
+        startDate = semaine_actu.getTime();
+        String startDateText = formatter.format(startDate);
+        int startDateInt;
+        for(int i = 1; i < 7; i++){
+            cell_temp = (TextView) planning.getChildAt(i);
+            startDateInt = Integer.valueOf(startDateText)+(i-1);
+            date_temp = days[(i-1)].concat(" "+startDateInt);
+            cell_temp.setText(date_temp);
+        }
     }
 
     @Override
