@@ -17,11 +17,14 @@
     <string name="alertSuppressionUETitle"><b>Suppression de l\'UE</b></string>
     <string name="alertAjoutUETitle"><b>Ajout d\'une l\'UE</b></string>
     <string name="alertModificationPlanningTitle"><b>Modification du créneau de réservation</b></string>
+    <string name="alertAjoutPlanningTitle"><b>Réservation d\'une salle de cours</b></string>
     <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="alertModificationNoteMessage">Confirmez-vous la modification de la note actuelle de  </string>
     <string name="alertSuppressionUEMessage">Souhaitez-vous supprimer de votre liste de préférences l\'UE suivante :  </string>
     <string name="alertAjoutUEMessage">Souhaitez-vous ajouter à votre liste de préférences l\'UE suivante :  </string>
     <string name="alertModificationPlanningMessage">Souhaitez-vous poursuivre et</string>
+    <string name="alertAjoutPlanningMessage_start">Afin de finaliser la réservation de la salle </string>
+    <string name="alertAjoutPlanningMessage_end">, merci de sélectionner l\'UE concernée.</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
     <string name="alertPwdToast">Votre mot de passe a été réinitialisé et renvoyé par mail.</string>
@@ -66,6 +69,7 @@
     <string name="recherche_date_text">jj / mm / aaaa</string>
     <string name="recherche_duree_cours_text">Durée du cours (heures) : </string>
     <string name="select_ue">Sélectionner une Unité d\'Enseignement</string>
+    <string name="select_date">Sélectionner une date</string>
     <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
     <string name="alertConfirmPlanningModifiedToast">La modification du planning a bien été prise en compte.</string>
 

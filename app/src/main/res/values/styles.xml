@@ -83,15 +83,14 @@
     </style>
 
     <style name="textJour" parent="textCellule">
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
         <item name="android:background">@drawable/bordurecase</item>
     </style>
 
     <style name="textHoraire" parent="textJour">
         <item name="android:textSize">18sp</item>
         <item name="android:padding">10sp</item>
-        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">fill_horizontal</item>
     </style>
 
