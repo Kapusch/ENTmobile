@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -206,6 +207,7 @@ public class Notes extends ActionBarActivity{
                     initalertEditNoteBuilder(position);
                     alertEditNote = alertEditNoteBuilder.create();
                     alertEditNote.show();
+                    alertEditNote.getButton(AlertDialog.BUTTON1).setEnabled(false);
                     ((ViewGroup)v.getParent()).removeView(editNote);
                 }
             });
@@ -228,6 +230,17 @@ public class Notes extends ActionBarActivity{
         final int position = i;
         editNote = new EditText(this);
         editNote.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        editNote.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (editNote.getText().toString().equals(getResources().getString(R.string.vide))){
+                    alertEditNote.getButton(AlertDialog.BUTTON1).setEnabled(false);
+                }else{
+                    alertEditNote.getButton(AlertDialog.BUTTON1).setEnabled(true);
+                }
+                return false;
+            }
+        });
         alertEditNoteBuilder.setTitle(R.string.alertModificationNoteTitle);
         alertEditNoteBuilder.setView(editNote);
         String confirm_txt = getResources().getString(R.string.alertModificationNoteMessage);
