@@ -120,7 +120,7 @@ public class ListeUE extends ActionBarActivity implements SearchView.OnQueryText
     /*Code à redéfinir pour récupérer les résultats de la recherche*/
     //Affichage des résultats de la recherche d'UE
     private void setTable_recherche_UE() {
-        final String [] col_items = {"L3-Info Projet d'étude de cas tutoré (CM)", "L3-Info Projet d'étude de cas tutoré (TP)"};
+        final String [] col_items = {"L3-Info Projet d'étude de cas tutoré (CM)", "L3-Info Projet d'étude de cas tutoré (TP)", "L3-Info Programmation Orientation Objet (TD)", "L3-Info Programmation Orientation Objet (TP)"};
 
         // Construction du tableau
         for(int i=0;i<col_items.length;i++) {
@@ -152,7 +152,7 @@ public class ListeUE extends ActionBarActivity implements SearchView.OnQueryText
 
     //Affichage des résultats
     private void setTable_UE_preferences() {
-        final String [] col_items = {"L1-Info Algorithmique (CM)", "M1-Info Processus stochastiques et heuristiques (CM)", "M1-Info Modélisation et optimisation des systèmes (CM)", "L3-Info Projet d'étude de cas tutoré (TP)", "L1-Info Algorithmique (CM)", "M1-Info Processus stochastiques et heuristiques (CM)", "M1-Info Modélisation et optimisation des systèmes (CM)", "L3-Info Projet d'étude de cas tutoré (TP)"};
+        final String [] col_items = {"L1-Info Algorithmique (CM)", "M1-Info Processus stochastiques et heuristiques (CM)", "M1-Info Modélisation et optimisation des systèmes (CM)", "L1-Info Algorithmique (TD)", "M1-Info Processus stochastiques et heuristiques (TD)", "M1-Info Architecture systèmes (CM)"};
 
         // Construction du tableau
         for(int i=0;i<col_items.length;i++) {
@@ -222,7 +222,7 @@ public class ListeUE extends ActionBarActivity implements SearchView.OnQueryText
         final int position = i;
         alertAddUEBuilder.setTitle(R.string.alertAjoutUETitle);
         String confirm_txt = getResources().getString(R.string.alertAjoutUEMessage);
-        final TableRow temp_row_liste_pref = (TableRow)table_UE_preferences.getChildAt(position);
+        final TableRow temp_row_liste_pref = new TableRow(this);
         final TableRow temp_row = (TableRow)table_UE_recherche.getChildAt(position);
         final TextView temp_UE = (TextView) temp_row.getChildAt(0);
         String UE_name = (String) temp_UE.getText();
@@ -234,7 +234,7 @@ public class ListeUE extends ActionBarActivity implements SearchView.OnQueryText
             public void onClick(DialogInterface dialog, int which) {
                 /* TODO */
                 /*Code à définir pour supprimer l'UE de la liste de préférences dans la bdd et à prendre en compte dans l'affichage*/
-                ((ViewGroup) temp_row.getParent()).removeView(temp_UE);
+                temp_row.removeView(temp_UE);
                 temp_row_liste_pref.addView(temp_UE);
                 table_UE_preferences.addView(temp_row_liste_pref);
             }
@@ -319,6 +319,7 @@ public class ListeUE extends ActionBarActivity implements SearchView.OnQueryText
 //        mStatusView.setText("Query = " + query + " : submitted");
         table_UE_recherche.removeAllViews();
         setTable_recherche_UE();
+        mSearchView.clearFocus();
         return false;
     }
 
