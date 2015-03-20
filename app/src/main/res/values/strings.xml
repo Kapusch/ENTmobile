@@ -35,7 +35,7 @@
     <string name="label_menu">MENU PRINCIPAL</string>
     <string name="label_accueil">PAGE D\'ACCUEIL</string>
     <string name="label_planning_prof">VUE DU PLANNING PERSONNEL</string>
-    <string name="label_planning_salle">VUE DU PLANNING PAR SALLE</string>
+    <string name="label_planning_salle">VUE DU PLANNING PAR SALLE : AMPHI 9001</string>
     <string name="label_reservation">RÉSERVER UNE SALLE</string>
     <string name="label_notes">GESTION DES NOTES</string>
     <string name="label_profil">PROFIL D\'UTILISATEUR</string>

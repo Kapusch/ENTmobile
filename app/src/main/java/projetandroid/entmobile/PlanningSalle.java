@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.SearchManager;
+import android.app.SearchableInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,6 +21,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
@@ -28,6 +31,7 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +39,9 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
-public class PlanningSalle extends ActionBarActivity{
+public class PlanningSalle extends ActionBarActivity implements SearchView.OnQueryTextListener {
 
     private String[] drawerListViewItems;
     private ListView drawerListView;
@@ -64,8 +69,12 @@ public class PlanningSalle extends ActionBarActivity{
     private Spinner select_ue;
     private ArrayAdapter<String> spinnerAdapter;
     private String ue_toast_confirm;
+    private SearchView mSearchView;
 
     protected void onCreate(Bundle savedInstanceState){
+        //Définition de la searchBar
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning_salle);
 
@@ -330,13 +339,6 @@ public class PlanningSalle extends ActionBarActivity{
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_select_date, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
@@ -396,6 +398,57 @@ public class PlanningSalle extends ActionBarActivity{
             }
         });
         spinnerAdapter.notifyDataSetChanged();
+    }
+
+    // ******************************
+    //Gestion de la barre de recherche
+    // ******************************
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_select_date_searchview, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        mSearchView = (SearchView) searchItem.getActionView();
+        setupSearchView(searchItem);
+
+        return true;
+    }
+
+    private void setupSearchView(MenuItem searchItem) {
+        //Définit un autre aspect de la barre de recherche
+//        searchItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        if (searchManager != null) {
+            List<SearchableInfo> searchables = searchManager.getSearchablesInGlobalSearch();
+
+            SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
+            for (SearchableInfo inf : searchables) {
+                if (inf.getSuggestAuthority() != null
+                        && inf.getSuggestAuthority().startsWith("contacts")) {
+                    info = inf;
+                }
+            }
+            mSearchView.setSearchableInfo(info);
+        }
+
+        mSearchView.setOnQueryTextListener(this);
+    }
+
+    //TODO
+    /*Code à redéfinir pour gérer la requête dans la bdd*/
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+//        mStatusView.setText("Query = " + query + " : submitted");
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+//        mStatusView.setText("Query = " + newText);
+        return false;
     }
 
     // Afficher l'icône du bouton du menu
