@@ -233,10 +233,19 @@ public class ListeUE extends ActionBarActivity implements SearchView.OnQueryText
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 /* TODO */
-                /*Code à définir pour supprimer l'UE de la liste de préférences dans la bdd et à prendre en compte dans l'affichage*/
+                /*Code à définir pour ajouter l'UE de la liste de préférences dans la bdd*/
                 temp_row.removeView(temp_UE);
                 temp_row_liste_pref.addView(temp_UE);
                 table_UE_preferences.addView(temp_row_liste_pref);
+                temp_row_liste_pref.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        v.startAnimation(anim_clic_on_item);
+                        initalertDeleteUEBuilder(table_UE_preferences.getChildCount()-1);
+                        alertDeleteUE = alertDeleteUEBuilder.create();
+                        alertDeleteUE.show();
+                    }
+                });
             }
         });
         alertAddUEBuilder.setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
