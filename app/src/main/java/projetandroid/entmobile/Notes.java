@@ -355,7 +355,6 @@ public class Notes extends ActionBarActivity{
         final int position = i;
         alertDeleteNoteBuilder.setTitle(R.string.alertSuppressionNoteTitle);
         String confirm_txt = getResources().getString(R.string.alertSuppressionNoteMessage);
-        Log.i("position ----- > ", String.valueOf(position));
         TableRow temp_row = (TableRow)table_notes.getChildAt(position);
         TextView temp_num_etudiant = (TextView)temp_row.getChildAt(index_num_etudiant);
         TextView temp_nom_etudiant = (TextView)temp_row.getChildAt(index_nom_etudiant);
