@@ -14,12 +14,14 @@
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
     <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
     <string name="alertModificationNoteTitle"><b>Modification de la note</b></string>
+    <string name="alertAjoutNoteTitle"><b>Ajout d\'une nouvelle note</b></string>
     <string name="alertSuppressionUETitle"><b>Suppression de l\'UE</b></string>
     <string name="alertAjoutUETitle"><b>Ajout d\'une l\'UE</b></string>
     <string name="alertModificationPlanningTitle"><b>Modification du créneau de réservation</b></string>
     <string name="alertAjoutPlanningTitle"><b>Réservation d\'une salle de cours</b></string>
     <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="alertModificationNoteMessage">Confirmez-vous la modification de la note actuelle de  </string>
+    <string name="alertAjoutNoteMessage">Veuillez renseigner les informations suivantes pour ajouter une nouvelle note.</string>
     <string name="alertSuppressionUEMessage">Souhaitez-vous supprimer de votre liste de préférences l\'UE suivante :  </string>
     <string name="alertAjoutUEMessage">Souhaitez-vous ajouter à votre liste de préférences l\'UE suivante :  </string>
     <string name="alertModificationPlanningMessage">Souhaitez-vous poursuivre et</string>
@@ -69,8 +71,11 @@
     <string name="recherche_date_text">jj / mm / aaaa</string>
     <string name="recherche_duree_cours_text">Durée du cours (heures) : </string>
     <string name="select_ue">Sélectionner une Unité d\'Enseignement</string>
+    <string name="select_student">Sélectionner un élève</string>
     <string name="select_date">Sélectionner une date</string>
+    <string name="add_mark">Ajouter une nouvelle note pour un élève</string>
     <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
+    <string name="alertConfirmNoteAddedToast">L\'ajout de la note a bien été pris en compte.</string>
     <string name="alertConfirmPlanningModifiedToast">La modification du planning a bien été prise en compte.</string>
 
     <!--Strings array pour les items des menus de chaque activité-->
@@ -169,6 +174,8 @@
     <string name="horaire_debut_cours">Horaire du début du cours</string>
     <string name="titre_table_preferences_UE">Liste de préférences des UE</string>
     <string name="titre_table_recherche_UE">Résultats de la recherche des UE</string>
+    <string name="hint_name_exam">Saisissez le nom de l\'examen</string>
+    <string name="hint_note">Saisissez une note</string>
     <string-array name="horaire_debut_cours_items">
         <item>Horaire du début du cours</item>
         <item>Début du cours à 08:00</item>
