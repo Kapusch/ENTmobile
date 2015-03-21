@@ -314,12 +314,21 @@ public class Notes extends ActionBarActivity{
             row_results.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    table_notes.getChildAt(position).startAnimation(anim_clic_on_item);
+                    v.startAnimation(anim_clic_on_item);
                     initalertEditNoteBuilder(position);
                     alertEditNote = alertEditNoteBuilder.create();
                     alertEditNote.show();
                     alertEditNote.getButton(AlertDialog.BUTTON1).setEnabled(false);
 //                    ((ViewGroup)v.getParent()).removeView(editNote);
+                }
+            });
+            row_results.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    v.startAnimation(anim_clic_on_item);
+                    initalertDeleteNoteBuilder(position);
+                    alertDeleteNote = alertDeleteNoteBuilder.create();
+                    return false;
                 }
             });
 
@@ -390,6 +399,9 @@ public class Notes extends ActionBarActivity{
 
     //Définition du contenu de la boîte de dialogue d'ajout de la note
     private void initalertAddNoteBuilder() {
+        bool_exam_not_empty = 0;
+        bool_student_not_empty = 0;
+        bool_note_not_empty = 0;
         setContentListeStudent();
         editNote = new EditText(this);
         editNote.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
