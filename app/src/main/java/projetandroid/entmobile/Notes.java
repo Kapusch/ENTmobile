@@ -36,6 +36,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -86,6 +87,8 @@ public class Notes extends ActionBarActivity{
     private ArrayList<String> col_4;
     private ArrayList<String> col_5;
     private ArrayList<String> col_6;
+    private AlertDialog alertDeleteNote;
+    private AlertDialog.Builder alertDeleteNoteBuilder;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -110,6 +113,7 @@ public class Notes extends ActionBarActivity{
         //Définition de la boîte de dialogue de confirmation de modification de la note
         alertEditNoteBuilder = new AlertDialog.Builder(this);
         alertAddNoteBuilder = new AlertDialog.Builder(this);
+        alertDeleteNoteBuilder = new AlertDialog.Builder(this);
 
         // Récupérer les items du menu et la vue du menu
         drawerListViewItems = getResources().getStringArray(R.array.menu_items_notes);
@@ -328,6 +332,7 @@ public class Notes extends ActionBarActivity{
                     v.startAnimation(anim_clic_on_item);
                     initalertDeleteNoteBuilder(position);
                     alertDeleteNote = alertDeleteNoteBuilder.create();
+                    alertDeleteNote.show();
                     return false;
                 }
             });
@@ -343,6 +348,47 @@ public class Notes extends ActionBarActivity{
         cellule.setTextColor(getResources().getColor(R.color.white));
         cellule.setPadding(4, 4, 4, 4);
         cellule.setTextSize(20);
+    }
+
+    //Définition du contenu de la boîte de dialogue de suppression de la note
+    private void initalertDeleteNoteBuilder(int i){
+        final int position = i;
+        alertDeleteNoteBuilder.setTitle(R.string.alertSuppressionNoteTitle);
+        String confirm_txt = getResources().getString(R.string.alertSuppressionNoteMessage);
+        Log.i("position ----- > ", String.valueOf(position));
+        TableRow temp_row = (TableRow)table_notes.getChildAt(position);
+        TextView temp_num_etudiant = (TextView)temp_row.getChildAt(index_num_etudiant);
+        TextView temp_nom_etudiant = (TextView)temp_row.getChildAt(index_nom_etudiant);
+        TextView temp_prenom_etudiant = (TextView) temp_row.getChildAt(index_prenom_etudiant);
+        final TextView temp_note_actuelle = (TextView) temp_row.getChildAt(index_note);
+        String num_etudiant = (String) temp_num_etudiant.getText();
+        String nom_etudiant = (String) temp_nom_etudiant.getText();
+        String prenom_etudiant = (String) temp_prenom_etudiant.getText();
+        String note_actuelle = (String) temp_note_actuelle.getText();
+        alertDeleteNoteBuilder.setMessage(confirm_txt+" "+note_actuelle+" de l'étudiant "+prenom_etudiant+" "+nom_etudiant+" (id: "+num_etudiant+") pour cette matière ?");
+        alertDeleteNoteBuilder.setIcon(R.drawable.ic_action_remove);
+
+        alertDeleteNoteBuilder.setPositiveButton(R.string.oui, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                /* TODO */
+                /*Code à définir pour supprimer la note dans la bdd et à prendre en compte dans l'affichage des notes*/
+                col_1.remove(position);
+                col_2.remove(position);
+                col_3.remove(position);
+                col_5.remove(position);
+                col_6.remove(position);
+                table_notes.removeAllViews();
+                setTable_notes();
+                Toast.makeText(getApplicationContext(), R.string.alertConfirmNoteDeletedToast, Toast.LENGTH_SHORT).show();
+            }
+        });
+        alertDeleteNoteBuilder.setNegativeButton(R.string.non, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
     }
     
     //Définition du contenu de la boîte de dialogue d'édition de la note

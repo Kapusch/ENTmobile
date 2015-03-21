@@ -14,6 +14,7 @@
     <string name="alertPwdMessage">Souhaitez-vous que l\'on vous envoie un nouveau mot de passe par mail ?</string>
     <string name="alertReservationTitle"><b>Réservation de la salle</b></string>
     <string name="alertModificationNoteTitle"><b>Modification de la note</b></string>
+    <string name="alertSuppressionNoteTitle"><b>Suppression de la note</b></string>
     <string name="alertAjoutNoteTitle"><b>Ajout d\'une nouvelle note</b></string>
     <string name="alertSuppressionUETitle"><b>Suppression de l\'UE</b></string>
     <string name="alertAjoutUETitle"><b>Ajout d\'une l\'UE</b></string>
@@ -21,6 +22,7 @@
     <string name="alertAjoutPlanningTitle"><b>Réservation d\'une salle de cours</b></string>
     <string name="alertReservationMessage">Confirmez-vous la réservation de la salle </string>
     <string name="alertModificationNoteMessage">Confirmez-vous la modification de la note actuelle de  </string>
+    <string name="alertSuppressionNoteMessage">Confirmez-vous la suppression de la note actuelle de  </string>
     <string name="alertAjoutNoteMessage">Veuillez renseigner les informations suivantes pour ajouter une nouvelle note.</string>
     <string name="alertSuppressionUEMessage">Souhaitez-vous supprimer de votre liste de préférences l\'UE suivante :  </string>
     <string name="alertAjoutUEMessage">Souhaitez-vous ajouter à votre liste de préférences l\'UE suivante :  </string>
@@ -75,6 +77,7 @@
     <string name="select_date">Sélectionner une date</string>
     <string name="add_mark">Ajouter une nouvelle note pour un élève</string>
     <string name="alertConfirmNoteModifiedToast">La modification de la note a bien été prise en compte.</string>
+    <string name="alertConfirmNoteDeletedToast">La suppression de la note a bien été prise en compte.</string>
     <string name="alertConfirmNoteAddedToast">L\'ajout de la note a bien été pris en compte.</string>
     <string name="alertConfirmPlanningModifiedToast">La modification du planning a bien été prise en compte.</string>
 
